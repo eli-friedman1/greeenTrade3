@@ -1,0 +1,48 @@
+﻿<div class="select-container" layout="column" layout-align="center center">
+    <div class="state-select-container">
+        <div>Select your cell phone brand:</div>
+        <div>
+            <ul>
+                <li ng-repeat="(brand, series) in phoneBrands" ng-click="selectBrand(brand)">{{brand}} </li>
+            </ul>
+        </div>
+    </div>
+    <div ng-if="isBrandSelected" class="state-select-container">
+        <div>Select your {{phoneData.brandSelected}} series:</div>
+        <div>
+            <ul>
+                <li ng-repeat="series in phoneBrands[phoneData.brandSelected]" ng-click="selectSeries(series)">{{series}} </li>
+            </ul>
+        </div>
+    </div>
+    <div ng-if="isSeriesSelected" class="state-select-container">
+        <div>Select your {{phoneData.brandSelected}} {{phoneData.seriesSelected}} carrier:</div>
+        <div>
+            <ul>
+                <li ng-repeat="carrier in carriers" ng-click="selectCarrier(carrier)">{{carrier}} </li>
+            </ul>
+        </div>
+    </div>
+    <div ng-if="isCarrierSelected" class="state-select-container">
+        <div>Select your {{phoneData.brandSelected}} {{phoneData.seriesSelected}} {{phoneData.carrierSelected}} phone features:</div>
+        <div>
+            <ul>
+                <li ng-repeat="color in colors" ng-click="selectColor(color)">{{color}} </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li ng-repeat="GB in GBs" ng-click="selectGB(GB)">{{GB}} </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li ng-repeat="condition in conditions" ng-click="selectCondition(condition)">{{condition}} </li>
+            </ul>
+        </div>
+    </div>
+    <md-button ng-if="isColorSelected && isGBSelected && isConditionSelected" ng-click="submit()">
+        Proceed to offer
+    </md-button>
+
+</div>
