@@ -86,7 +86,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <%--<a class="navbar-brand" runat="server" href="~/">Application name</a>--%>
+                   <%-- <div  layout="row" layout-align="center start">
+                        <img src='\Content\Global\Img\transparentbackgrndlogo.png' class="img-centered" alt='[]' />
+                    </div>--%>
+                    <div  layout="row" layout-align="center start">
+                        <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
+                    </div>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -113,7 +119,8 @@
                     </asp:LoginView>
                 </div>
             </div>
-        </div>
+        
+            </div>
         <%--<div class="container body-content">--%>
         <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

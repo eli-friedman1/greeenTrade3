@@ -58,9 +58,9 @@ namespace greentrade2.Controllers
         ////
         //// GET: /Account/Login
         //[AllowAnonymous]
-        //public ActionResult Login(string returnUrl)
+        //public ActionResult SignIn(string returnUrl)
         //{
-        //    ViewBag.ReturnUrl = returnUrl;
+        //   // ViewBag.ReturnUrl = returnUrl;
         //    return View();
         //}
 
@@ -388,7 +388,8 @@ namespace greentrade2.Controllers
         //    return View(model);
         //}
 
-        public JsonResult LogIn(string email, string pw, bool rememberMe = false)
+       // [HttpPost]
+        public JsonResult LogInAjax(string email, string pw, bool rememberMe = false)
         {
 
             var signinManager = HttpContext.GetOwinContext().GetUserManager<ApplicationSignInManager>();

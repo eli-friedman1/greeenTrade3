@@ -18,7 +18,7 @@ myApp.controller('phoneAppController', ['$scope','$window', function ($scope, $w
     };
     
     $scope.offer = $window.offerFromSession;
-
+    $scope.loggedIn = $window.loggedIn;
     $scope.updateOffer = updateOffer;
     function updateOffer(offer) {
         $scope.offer = offer;

@@ -12,9 +12,11 @@
 <script src="/Content/Global/js/Phone App/phone-app.js"></script>
 <script src="/Content/Global/js/Phone App/directives/login.js"></script>
 <script src="/Content/Global/js/Phone App/directives/phone-selector.js"></script>
+<script src="/Content/Global/js/Phone App/directives/offer.js"></script>
 
 <script>
     offerFromSession = <%= Session["offer"] != null ? Session["offer"] : "null" %>
+    loggedIn = <%= HttpContext.Current.User.Identity.IsAuthenticated ? "true" : "false" %>
     function sendEmail() {
         $.ajax({
             type: "POST",
@@ -37,8 +39,8 @@
         <div onclick="sendEmail()">yo</div>
         <input ng-model="offerFromSession" /><div>{{offer}}a</div>
         <phone-selector ng-show="offer == null" phone-data="phoneData" update-offer="updateOffer(offer)"></phone-selector>
-        <login ng-if="offer != null" phone-data="phoneData"></login>
-
+        <login ng-show="offer != null && !loggedIn" phone-data="phoneData"></login>
+        <offer ng-show="offer != null && loggedIn" phone-data="phoneData"></offer>
          
     </div>
 

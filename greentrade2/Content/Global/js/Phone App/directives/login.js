@@ -8,7 +8,7 @@
             function loginSubmit() {
                 $.ajax({
                     type: "POST",
-                    url: 'http://localhost/Account/LogIn',
+                    url: 'http://localhost/Account/LogInAjax',
                     data: { email: $scope.email, pw: $scope.pw }
                 })
                 .then(
