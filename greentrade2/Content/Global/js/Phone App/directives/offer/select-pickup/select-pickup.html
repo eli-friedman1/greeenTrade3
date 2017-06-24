@@ -1,0 +1,21 @@
+﻿<div>Congratulations! You are now steps away from booking
+
+your phones very first chauffeur!</div>
+<div>
+    Please select from the available time slots to have a friendly GreenTrade driver pick up your phone.
+</div>
+
+<div layout="row" layout-align="space-around start">
+    <div ng-repeat="day in days">
+        {{day.dayOfWeek}}
+        <div layout="column" layout-align="space-around center">
+            <md-button ng-repeat="time in day.openTimeSlots" ng-class="{ 'selected-time-slot': $parent.$index == selectedParentIndex && $index == selectedChildIndex }" ng-click="itemClicked($parent.$index, $index)" >
+                {{time}}
+            </md-button>
+        </div>
+    </div>
+</div>
+
+<md-button ng-click="submitPickUpTime()">
+    confirm pickup time
+</md-button>

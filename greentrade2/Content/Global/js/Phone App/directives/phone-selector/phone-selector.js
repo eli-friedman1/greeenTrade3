@@ -1,10 +1,16 @@
 ﻿myApp.directive('phoneSelector', function () {
     return {
+        templateUrl: '/Content/Global/js/Phone App/directives/phone-selector/phone-selector.html',
         scope:{
             phoneData: '=',
+            updateTitle: '&',
             updateOffer: '&'
         },
         controller: ['$scope', '$timeout', function MyTabsController($scope, $timeout) {
+            $timeout(function () {
+                $scope.updateTitle({ subTitle: 'START YOUR GREENTRADE' });
+            });
+
             $scope.phoneBrands = {
                 'iphone': ['series1', 'series2'],
                 'android': ['series1', 'series2'],
@@ -87,7 +93,6 @@
                     }
                 );
             }
-        }],
-        templateUrl: '/Content/Global/js/Phone App/directives/phone-selector.html'
+        }]
     };
 });

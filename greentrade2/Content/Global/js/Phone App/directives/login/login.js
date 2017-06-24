@@ -1,6 +1,6 @@
 ﻿myApp.directive('login', function () {
     return {
-        templateUrl: '/Content/Global/js/Phone App/directives/login.html',
+        templateUrl: '/Content/Global/js/Phone App/directives/login/login.html',
         controller: ['$scope', '$timeout', function MyTabsController($scope, $timeout) {
             $scope.email;
             $scope.pw;

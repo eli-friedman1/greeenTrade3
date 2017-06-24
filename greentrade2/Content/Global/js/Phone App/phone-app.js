@@ -8,6 +8,12 @@ myApp.controller('phoneAppController', ['$scope','$window', function ($scope, $w
     //vm.color;
     //vm.GB;
     //vm.condition;
+    $scope.subTitle;
+    $scope.updateTitle = updateTitle;
+    function updateTitle(subTitle) {
+        $scope.subTitle = subTitle;
+    }
+
     $scope.phoneData = {
         brandSelected: "",
         seriesSelected: "",

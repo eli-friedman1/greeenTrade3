@@ -9,3 +9,7 @@ ul {
 li {
     display: inline;
 }
+
+.selected-time-slot {
+    color: #64be8a !important; 
+}
