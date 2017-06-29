@@ -75,7 +75,7 @@ namespace greentrade2.Controllers
                 // Subject and multipart/alternative Body
                 mailMsg.Subject = "subject";
                 string text = "text body";
-                string html = @"<p>html body</p>";
+                string html = @"<p>html body test 12</p>";
                 mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
                 mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
 

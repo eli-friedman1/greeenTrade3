@@ -15,6 +15,8 @@ using System.Text;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Configuration;
+using Microsoft.AspNet.Identity;
+using greentrade2.Models;
 
 namespace greentrade2.Controllers
 {
@@ -25,18 +27,9 @@ namespace greentrade2.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
         public JsonResult SubmitPhoneForm(string brand, string series, string carrier, string color, int GB, string condition)
         {
+            int phoneId = 0;
             decimal offer = 0;
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
@@ -44,23 +37,91 @@ namespace greentrade2.Controllers
                 //
                 // The following code shows how you can use an SqlCommand based on the SqlConnection.
                 //
-                using (SqlCommand cmd = new SqlCommand("SELECT Top 1 offer from Phones where Brand = @brand", con))
+                using (SqlCommand cmd = new SqlCommand(@"SELECT Top 1 PhoneID, offer 
+                                                            from Phones 
+                                                            where Brand = @brand 
+                                                                and Series = @series 
+                                                                and Carrier = @carrier 
+                                                                and Color = @color 
+                                                                and GB = @GB 
+                                                                and Condition = @condition", con))
                 {
                     cmd.Parameters.Add(new SqlParameter("@brand", brand));
+                    cmd.Parameters.Add(new SqlParameter("@series", series));
+                    cmd.Parameters.Add(new SqlParameter("@carrier", carrier));
+                    cmd.Parameters.Add(new SqlParameter("@color", color));
+                    cmd.Parameters.Add(new SqlParameter("@GB", GB));
+                    cmd.Parameters.Add(new SqlParameter("@condition", condition));
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            offer = reader.GetDecimal(0);
+                            phoneId = reader.GetInt32(0);
+                            offer = reader.GetDecimal(1);
                         }
                     }
                 }
             }
+            Session["phoneId"] = phoneId;
             Session["offer"] = offer;
 
-            return Json(new { offer, success = true });
+            //check if user is logged in to see where to route to
+            string userFirstName = "";
+            bool loggedIn = (System.Web.HttpContext.Current.User != null) && (System.Web.HttpContext.Current.User.Identity.IsAuthenticated);
+            if (loggedIn)
+            {
+                userFirstName = System.Web.HttpContext.Current.User.Identity.Name;
+            }
+
+            return Json(new { success = true, offer, loggedIn, userFirstName });
         }
 
+        public JsonResult SelectTimeSlot(string timeSlot, string brand, string series, string carrier, string color, int GB, string condition, decimal offer)
+        {
+            var contextUser = System.Web.HttpContext.Current.User;
+            
+            if (!contextUser.Identity.IsAuthenticated)
+            {
+                return Json(new { success = false });
+            }
+
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(contextUser.Identity.GetUserId());
+
+            int phoneId = (int)Session["phoneId"];
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                con.Open();
+                //
+                // The following code shows how you can use an SqlCommand based on the SqlConnection.
+                //
+                using (SqlCommand cmd = new SqlCommand(@"INSERT INTO PhoneSubmissions ([UserID]
+                                                                                ,[PhoneID]
+                                                                                ,[AddressID]
+                                                                                ,[TimeSlotSelected]
+                                                                                ,[SubmissionTime])
+                                                                  VALUES (@userID, @phoneID, @addressID, @timeSlotSelected, @submissionTime)", con))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@userID", user.Id));
+                    cmd.Parameters.Add(new SqlParameter("@phoneID", phoneId));
+                    cmd.Parameters.Add(new SqlParameter("@addressID", carrier)); //TODO : where to get addressID
+                    cmd.Parameters.Add(new SqlParameter("@color", color));
+                    cmd.Parameters.Add(new SqlParameter("@GB", GB));
+                    cmd.Parameters.Add(new SqlParameter("@condition", condition));
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            phoneId = reader.GetInt32(0);
+                            offer = reader.GetDecimal(1);
+                        }
+                    }
+                }
+            }
+
+            return Json(new { success = true });
+        }
+            
         public JsonResult LogIn(string email, string pw, bool rememberMe = false)
         {
 

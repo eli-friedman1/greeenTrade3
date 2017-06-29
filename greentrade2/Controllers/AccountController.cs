@@ -8,10 +8,13 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Data.SqlClient;
+using System.Configuration;
 
 using System.Web.UI;
 using Owin;
 using greentrade2.Models;
+using System.Data;
 
 namespace greentrade2.Controllers
 {
@@ -388,7 +391,75 @@ namespace greentrade2.Controllers
         //    return View(model);
         //}
 
-       // [HttpPost]
+        
+        public JsonResult RegisterAjax(string email, string pw, string fName, string lName, string address, string city, string state, string zip, string phone)
+        {
+            bool success = true;
+            string errors = "";
+            var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+            var user = new ApplicationUser() { UserName = email, Email = email, FirstName = fName, LastName = lName };
+            IdentityResult result = manager.Create(user, pw);
+            if (result.Succeeded)
+            {
+                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                //string code = manager.GenerateEmailConfirmationToken(user.Id);
+                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                // IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], HttpResponse);
+
+                decimal offer = 0;
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+                {
+                    con.Open();
+                    //
+                    // The following code shows how you can use an SqlCommand based on the SqlConnection.
+                    //
+                    using (SqlCommand cmd = new SqlCommand(@"INSERT INTO Addresses ([UserID]
+                                                                                    ,[Address1]
+                                                                                    ,[City]
+                                                                                    ,[State]
+                                                                                    ,[Zip]
+                                                                                    ,[PhoneNumber])
+                                                                  VALUES (@UserID, @address, @city, @state, @zip, @phone) 
+                                                                    SET @ID = SCOPE_IDENTITY();", con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@UserID", user.Id));
+                        cmd.Parameters.Add(new SqlParameter("@address", address));
+                        cmd.Parameters.Add(new SqlParameter("@city", city));
+                        cmd.Parameters.Add(new SqlParameter("@state", state));
+                        cmd.Parameters.Add(new SqlParameter("@zip", zip));
+                        cmd.Parameters.Add(new SqlParameter("@phone", phone));
+
+                        SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                        param.Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add(param);
+
+                        cmd.ExecuteNonQuery();
+
+                        user.DefaultAddressID = (int?)cmd.Parameters["@ID"].Value;
+                        var updateresult = manager.Update(user);
+                        HttpContext.GetOwinContext().Get<ApplicationDbContext>().SaveChanges();
+                        if (!updateresult.Succeeded)
+                        {
+                            AddErrors(result);
+                        }
+                    }
+                }
+                
+            }
+            else
+            {
+                errors = result.Errors.FirstOrDefault();
+                success = false;
+            }
+
+            return Json(new { success });
+        }
+
+        // [HttpPost]
         public JsonResult LogInAjax(string email, string pw, bool rememberMe = false)
         {
 
@@ -402,6 +473,7 @@ namespace greentrade2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    Session.Timeout = 1;
                     success = true;
                     break;
                 case SignInStatus.LockedOut:

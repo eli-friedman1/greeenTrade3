@@ -6,6 +6,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Mime;
 using greentrade2.Models;
 
 namespace greentrade2
@@ -15,6 +19,33 @@ namespace greentrade2
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+            try
+            {
+                MailMessage mailMsg = new MailMessage();
+              
+                // From
+                mailMsg.From = new MailAddress("test@domain.com", "GT");
+
+                // Subject and multipart/alternative Body
+                mailMsg.Subject = message.Subject;
+                mailMsg.Body = message.Body;
+                //string text = "text";
+                //string html = @"<p>html body</p>";
+                //mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+                //mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+                // Init SmtpClient and send
+                SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
+                //System.Net.NetworkCredential credentials = new System.Net.NetworkCredential();
+                //smtpClient.Credentials = credentials;
+
+                smtpClient.Send(mailMsg);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return Task.FromResult(0);
         }
     }
@@ -49,8 +80,8 @@ namespace greentrade2
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequiredLength = 8,
+                //RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,
                 RequireUppercase = true,

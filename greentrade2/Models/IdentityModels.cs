@@ -25,6 +25,10 @@ namespace greentrade2.Models
         {
             return Task.FromResult(GenerateUserIdentity(manager));
         }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int? DefaultAddressID { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

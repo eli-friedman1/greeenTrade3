@@ -213,7 +213,6 @@
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
-    <Content Include="Account\Login.aspx" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManageLogins.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -232,14 +231,22 @@
     <Content Include="Content\Global\Img\How It works graphic.jpg" />
     <Content Include="Content\Global\Img\kids with phones image.jpg" />
     <Content Include="Content\Global\Img\transparentbackgrndlogo.png" />
-    <Content Include="Content\Global\js\Phone App\directives\login.html" />
-    <Content Include="Content\Global\js\Phone App\directives\login.js" />
-    <Content Include="Content\Global\js\Phone App\directives\offer.html" />
-    <Content Include="Content\Global\js\Phone App\directives\offer.js" />
-    <Content Include="Content\Global\js\Phone App\directives\phone-selector.html" />
-    <Content Include="Content\Global\js\Phone App\directives\phone-selector.js" />
-    <Content Include="Content\Global\js\Phone App\phone-app.js" />
+    <Content Include="Content\Global\js\Phone App\directives\login\login.html" />
+    <Content Include="Content\Global\js\Phone App\directives\login\login.js" />
+    <Content Include="Content\Global\js\Phone App\directives\offer\driver-confirmation\driver-confirmation.html" />
+    <Content Include="Content\Global\js\Phone App\directives\offer\driver-confirmation\driver-confirmation.js" />
+    <Content Include="Content\Global\js\Phone App\directives\offer\offer.html" />
+    <Content Include="Content\Global\js\Phone App\directives\offer\offer.js" />
+    <Content Include="Content\Global\js\Phone App\directives\offer\select-pickup\select-pickup.html" />
+    <Content Include="Content\Global\js\Phone App\directives\offer\select-pickup\select-pickup.js" />
+    <Content Include="Content\Global\js\Phone App\directives\phone-selector\phone-selector.html" />
+    <Content Include="Content\Global\js\Phone App\directives\phone-selector\phone-selector.js" />
+    <Content Include="Content\Global\js\Phone App\directives\register\register.html" />
+    <Content Include="Content\Global\js\Phone App\directives\register\register.js" />
+    <Content Include="Content\Global\js\Phone App\phone-app.html" />
     <Content Include="Content\Global\js\ng-zip-input.js" />
+    <Content Include="Content\Global\js\Phone App\phone-app.js" />
+    <Content Include="Content\Global\js\Phone App\phone-service.js" />
     <Content Include="Content\Global\Styles\StyleSheet1.css" />
     <Content Include="Content\phone-selector.css" />
     <Content Include="Content\Site.css" />
@@ -342,13 +349,6 @@
     </Compile>
     <Compile Include="Account\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Manage.aspx.cs">
       <DependentUpon>Manage.aspx</DependentUpon>

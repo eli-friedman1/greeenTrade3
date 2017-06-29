@@ -1,4 +1,5 @@
-﻿<div>Congratulations! You are now steps away from booking
+﻿<offer></offer>
+<div>Congratulations! You are now steps away from booking
 
 your phones very first chauffeur!</div>
 <div>
@@ -9,7 +10,7 @@ your phones very first chauffeur!</div>
     <div ng-repeat="day in days">
         {{day.dayOfWeek}}
         <div layout="column" layout-align="space-around center">
-            <md-button ng-repeat="time in day.openTimeSlots" ng-class="{ 'selected-time-slot': $parent.$index == selectedParentIndex && $index == selectedChildIndex }" ng-click="itemClicked($parent.$index, $index)" >
+            <md-button ng-repeat="time in day.openTimeSlots" ng-class="{ 'selected-time-slot': $parent.$index == selectedParentIndex && $index == selectedChildIndex }" ng-click="selectTime(time, $parent.$index, $index)" >
                 {{time}}
             </md-button>
         </div>

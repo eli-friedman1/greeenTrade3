@@ -1,4 +1,6 @@
-﻿body {
+﻿
+
+body {
     
 }
 
@@ -10,6 +12,48 @@ li {
     display: inline;
 }
 
+.phone-select-container {
+    background-color: #fafafa;
+    margin: 0px 16vw;
+}
+    
+.state-select-container {
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+    border-bottom-width: 1px;
+}
+
+.state-text {
+    padding: 1.5vw 2.5vw;
+}
+
+.state-button {
+    margin-bottom: 2vw;
+}
+
 .selected-time-slot {
     color: #64be8a !important; 
+}
+
+@media (max-width: 768px) {
+
+
+    .phone-select-container{
+        margin: 0
+    }
+
+    .body-content {
+        padding-left: 0;
+        padding-right: 0;
+        padding: 0;
+    }
+
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
 }
