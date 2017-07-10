@@ -18,6 +18,10 @@ myApp.config(function ($routeProvider) {
         templateUrl: "/Content/Global/js/Phone App/directives/offer/select-pickup/select-pickup.html",
         controller: "selectPickup"
     })
+    .when("/confirm", {
+        templateUrl: "/Content/Global/js/Phone App/directives/offer/driver-confirmation/driver-confirmation.html",
+        controller: "confirm"
+    })
     //.when("/paris", {
     //    templateUrl: "paris.htm",
     //    controller: "parisCtrl"

@@ -4,13 +4,13 @@ body {
     
 }
 
-ul {
+/*ul {
     list-style: none;
 }
 
 li {
     display: inline;
-}
+}*/
 
 .phone-select-container {
     background-color: #fafafa;
@@ -22,14 +22,64 @@ li {
     border-bottom-style: solid;
     border-bottom-color: grey;
     border-bottom-width: 1px;
+    padding-bottom: 2vw;
 }
 
 .state-text {
     padding: 1.5vw 2.5vw;
+    font-family: defaultLightFont;
+    font-size: 17px;
 }
 
-.state-button {
+/*.state-button-container {
     margin-bottom: 2vw;
+}*/
+
+.state-image{
+    position: relative;
+    height: 1.8vw;
+    width: 7vw;
+    top: 5px;
+}
+
+.series-button-container{
+    /*margin-bottom: 2vw;*/
+    display: inline-block;
+}
+
+.series-button {
+    line-height: 20px;
+    min-height: 20px;
+    margin: .2vw .6vw;
+    display:inline-block;
+}
+
+.series-button-text {
+    padding: .1vw 2vw;
+    font-family: defaultLightFont;
+    font-size: 17px;
+    text-transform:none;
+}
+
+.feature-item-container{
+    margin-top: 1vw;
+    /* left: 0vw; */
+    position: relative;
+    width: 100%;
+}
+
+.feature-item {
+    display: flex;
+    /*padding: .5vw 0;*/
+    position: relative;
+}
+
+hr {
+    margin: .8vw 0;
+}
+
+.condition-details {
+    padding-top: 2vw;
 }
 
 .selected-time-slot {
@@ -56,4 +106,22 @@ li {
         margin-left: 0;
     }
 
+    .navbar-brand{
+        padding: 2px;
+    }
+
+    .state-button-container{
+        display:flex;
+    }
+
+    .state-button {
+        min-width: 50px;
+        line-height: 20px;
+        min-height: 20px;
+        margin: 0;
+    }
+
+    .state-image {
+        top: -2px;
+    }
 }

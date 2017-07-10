@@ -87,14 +87,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <%--<a class="navbar-brand" runat="server" href="~/">Application name</a>--%>
-                   <%-- <div  layout="row" layout-align="center start">
-                        <img src='\Content\Global\Img\transparentbackgrndlogo.png' class="img-centered" alt='[]' />
-                    </div>--%>
-                <%--    <div  layout="row" layout-align="center start">
-                        <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
-                    </div>
+                  <%--  <a class="navbar-brand" runat="server" href="~/">
+                        <div  layout="row" layout-align="center start">
+                            <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
+                        </div>
+                    </a>
                     --%>
+                    
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -113,7 +112,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
-                                    <%--<asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" CausesValidation="false"/>--%>
+                                    
                                     <a href="/Account/Logoff">Log Off</a>
                                 </li>
                             </ul>
@@ -121,8 +120,8 @@
                     </asp:LoginView>
                 </div>
             </div>
-        
-            </div>
+        </div>
+
         <%--<div class="container body-content">--%>
         <div class="body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

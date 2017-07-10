@@ -201,7 +201,7 @@ myApp.controller('phoneSelector', ['$scope', '$timeout', '$location', 'phoneServ
 
     $scope.phoneBrands = {
         'iphone': {
-            series: ['series1', 'series2'],
+            series: ['series1', 'series2', 'sdfdsfdsfdsdfssdf', 'dsfdsfdsdfssdfs', 'fdsfdsdfssdfss', 'sfdsfdsdfssdfsdf', 'fdsfdsdfssdfsyj', 'dsfdsfdsdfssdfsert', 'sfdsdfssdfsewe', 'sfdsdfssdfsyugyh'],
             imageUrl: "/Content/Global/Img/sprite.svg#iphone"
         },
         'android': {
@@ -239,7 +239,10 @@ myApp.controller('phoneSelector', ['$scope', '$timeout', '$location', 'phoneServ
         $scope.phoneData.seriesSelected = series;
     }
 
-    $scope.carriers = ['sprint', 'att'];
+    $scope.carriers = [
+        ['sprint', '/Content/Global/Img/sprite.svg#sprint'],
+        ['att', '/Content/Global/Img/sprite.svg#att']
+    ];
 
     $scope.selectCarrier = selectCarrier;
     $scope.isCarrierSelected = false;

@@ -16,6 +16,7 @@
 <script src="/Content/Global/js/Phone App/directives/offer/offer.js"></script>
 <script src="/Content/Global/js/Phone App/directives/offer/select-pickup/select-pickup.js"></script>
 <script src="/Content/Global/js/Phone App/directives/register/register.js"></script>
+<script src="/Content/Global/js/Phone App/directives/offer/driver-confirmation/driver-confirmation.js"></script>
 
 <script>
     offerFromSession = <%= Session["offer"] != null ? Session["offer"] : "null" %>

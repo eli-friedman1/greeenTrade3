@@ -24,5 +24,37 @@
     this.getPhoneData = function () {
         return phoneData;
     }
+
+    var pickUpTime = {
+        day: "",
+        month: "",
+        date: "",
+        year: "",
+        timeStart: "",
+        timeEnd: ""
+    }
+
+    this.setPickUpTime = function (value) {
+        pickUpTime = value;
+    }
+
+    this.getPickUpTime = function () {
+        return pickUpTime;
+    }
+
+    var address = {
+        address1: "",
+        address2: "",
+        city: "",
+        state: "",
+        zip: "",
+    }
         
+    this.setAddress = function (value) {
+        address = value;
+    }
+
+    this.getAddress = function () {
+        return address;
+    }
 });

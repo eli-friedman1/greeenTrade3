@@ -17,6 +17,7 @@ using System.Net.Mime;
 using System.Configuration;
 using Microsoft.AspNet.Identity;
 using greentrade2.Models;
+using System.Data;
 
 namespace greentrade2.Controllers
 {
@@ -76,7 +77,7 @@ namespace greentrade2.Controllers
             return Json(new { success = true, offer, loggedIn, userFirstName });
         }
 
-        public JsonResult SelectTimeSlot(string timeSlot, string brand, string series, string carrier, string color, int GB, string condition, decimal offer)
+        public JsonResult SelectTimeSlot(DateTime timeSlot)
         {
             var contextUser = System.Web.HttpContext.Current.User;
             
@@ -86,42 +87,146 @@ namespace greentrade2.Controllers
             }
 
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(contextUser.Identity.GetUserId());
+            int? addressId = user.DefaultAddressID;
 
-            int phoneId = (int)Session["phoneId"];
-
-            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            string address1 = "", address2 = "", city = "", state = "", zip = "";
+            if(addressId != null)
             {
-                con.Open();
-                //
-                // The following code shows how you can use an SqlCommand based on the SqlConnection.
-                //
-                using (SqlCommand cmd = new SqlCommand(@"INSERT INTO PhoneSubmissions ([UserID]
-                                                                                ,[PhoneID]
-                                                                                ,[AddressID]
-                                                                                ,[TimeSlotSelected]
-                                                                                ,[SubmissionTime])
-                                                                  VALUES (@userID, @phoneID, @addressID, @timeSlotSelected, @submissionTime)", con))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
                 {
-                    cmd.Parameters.Add(new SqlParameter("@userID", user.Id));
-                    cmd.Parameters.Add(new SqlParameter("@phoneID", phoneId));
-                    cmd.Parameters.Add(new SqlParameter("@addressID", carrier)); //TODO : where to get addressID
-                    cmd.Parameters.Add(new SqlParameter("@color", color));
-                    cmd.Parameters.Add(new SqlParameter("@GB", GB));
-                    cmd.Parameters.Add(new SqlParameter("@condition", condition));
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(@"SELECT Top 1 Address1, Address2, City, State, Zip 
+                                                            from Addresses 
+                                                            where AddressID = @addressId", con))
                     {
-                        while (reader.Read())
+                        cmd.Parameters.Add(new SqlParameter("@addressId", addressId));
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            phoneId = reader.GetInt32(0);
-                            offer = reader.GetDecimal(1);
+                            while (reader.Read())
+                            {
+                                address1 = reader.GetString(0);
+                                address2 = reader.IsDBNull(1) ? null : reader.GetString(1);
+                                city = reader.GetString(2);
+                                state = reader.GetString(3);
+                                zip = reader.GetString(4);
+                            }
                         }
                     }
                 }
             }
+            int phoneId = (int)Session["phoneId"];
+            if (Session["phoneSubmissionId"] == null)
+            {
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(@"INSERT INTO PhoneSubmissions ([UserID]
+                                                                                ,[PhoneID]
+                                                                                ,[AddressID]
+                                                                                ,[TimeSlotSelected]
+                                                                                ,[SubmissionTime])
+                                                                  VALUES (@userID, @phoneID, @addressID, @timeSlotSelected, @submissionTime)
+                                                                  SET @ID = SCOPE_IDENTITY();", con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@userID", user.Id));
+                        cmd.Parameters.Add(new SqlParameter("@phoneID", phoneId));
+                        cmd.Parameters.Add(new SqlParameter("@addressID", addressId));
+                        cmd.Parameters.Add(new SqlParameter("@timeSlotSelected", timeSlot));
+                        cmd.Parameters.Add(new SqlParameter("@submissionTime", DateTime.Now.ToUniversalTime()));
 
-            return Json(new { success = true });
+                        SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                        param.Direction = ParameterDirection.Output;
+                        cmd.Parameters.Add(param);
+
+                        cmd.ExecuteNonQuery();
+
+                        Session["phoneSubmissionId"] = (int?)cmd.Parameters["@ID"].Value;
+                    }
+                }
+            }
+            else
+            {
+                int phoneSubmissionId = (int)Session["phoneSubmissionId"];
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(@"UPDATE PhoneSubmissions
+                                                                SET [TimeSlotSelected] = @timeSlotSelected
+                                                                WHERE [PhoneSubmissionID] = @phoneSubmissionID
+                                                                  ", con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@timeSlotSelected", timeSlot));
+                        cmd.Parameters.Add(new SqlParameter("@phoneSubmissionID", phoneSubmissionId));
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            return Json(new { success = true, address1, address2, city, state, zip });
         }
-            
+
+        public JsonResult UpdateSubmissionAddress(string address, string city, string state, string zip, string phone)
+        {
+            var contextUser = System.Web.HttpContext.Current.User;
+
+            if (!contextUser.Identity.IsAuthenticated)
+            {
+                return Json(new { success = false });
+            }
+
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(contextUser.Identity.GetUserId());
+
+            if (Session["phoneSubmissionId"] == null)
+            {
+                //log user out or return error
+            }
+
+            int phoneSubmissionId = (int)Session["phoneSubmissionId"];
+            int? newAddressId = 0;
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand(@"INSERT INTO Addresses ([UserID]
+                                                                                    ,[Address1]
+                                                                                    ,[City]
+                                                                                    ,[State]
+                                                                                    ,[Zip]
+                                                                                    ,[PhoneNumber])
+                                                                  VALUES (@UserID, @address, @city, @state, @zip, @phone) 
+                                                                    SET @ID = SCOPE_IDENTITY();", con))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@UserID", user.Id));
+                    cmd.Parameters.Add(new SqlParameter("@address", address));
+                    cmd.Parameters.Add(new SqlParameter("@city", city));
+                    cmd.Parameters.Add(new SqlParameter("@state", state));
+                    cmd.Parameters.Add(new SqlParameter("@zip", zip));
+                    cmd.Parameters.Add(new SqlParameter("@phone", phone));
+
+                    SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
+                    param.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(param);
+
+                    cmd.ExecuteNonQuery();
+
+                    newAddressId = (int?)cmd.Parameters["@ID"].Value;
+                }
+
+                using (SqlCommand cmd = new SqlCommand(@"UPDATE PhoneSubmissions
+                                                                SET [AddressID] = @newAddressId
+                                                                WHERE [PhoneSubmissionID] = @phoneSubmissionID
+                                                                  ", con))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@newAddressId", newAddressId));
+                    cmd.Parameters.Add(new SqlParameter("@phoneSubmissionID", phoneSubmissionId));
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            return Json(new { success = true, address, city, state, zip });
+        }
+
+
         public JsonResult LogIn(string email, string pw, bool rememberMe = false)
         {
 

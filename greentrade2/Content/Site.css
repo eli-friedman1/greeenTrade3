@@ -3,6 +3,11 @@
     src: url("/fonts/Camphor Bold.ttf");
 }
 
+@font-face {
+    font-family: defaultLightFont;
+    src: url("/fonts/Camphor Light.ttf");
+}
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
     padding-top: 50px;
@@ -14,6 +19,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: white;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
