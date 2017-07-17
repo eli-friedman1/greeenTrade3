@@ -229,7 +229,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Global\Img\gtlogo.svg" />
     <Content Include="Content\Global\Img\How It works graphic.jpg" />
+    <Content Include="Content\Global\Img\iphone7-front-svr.jpg" />
     <Content Include="Content\Global\Img\kids with phones image.jpg" />
+    <Content Include="Content\Global\Img\sprite.svg" />
     <Content Include="Content\Global\Img\transparentbackgrndlogo.png" />
     <Content Include="Content\Global\js\Phone App\directives\login\login.html" />
     <Content Include="Content\Global\js\Phone App\directives\login\login.js" />

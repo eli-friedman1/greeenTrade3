@@ -32,12 +32,12 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
     function loginSubmit() {
         $.ajax({
             type: "POST",
-            url: 'http://localhost/Account/LogInAjax',
+            url: '/Account/LogInAjax',
             data: { email: $scope.email, pw: $scope.pw }
         })
         .then(
             function (data) {
-                window.location = ("http://localhost/PhoneSelection#!/selectPickup");
+                window.location = ("/PhoneSelection#!/selectPickup");
                 window.location.reload();
                 //$timeout(function () {
                 //    // $scope.offer = data.offer;
@@ -48,6 +48,6 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
     }
     $scope.register = register;
     function register() {
-        window.location = ("http://localhost/PhoneSelection#!/register");
+        window.location = ("/PhoneSelection#!/register");
     }
 }]);

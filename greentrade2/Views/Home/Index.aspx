@@ -10,12 +10,8 @@
 <script src="/Content/Global/js/ng-zip-input.js"></script>
 
 <script>
-    function sendEmail() {
-        $.ajax({
-            type: "POST",
-            url: 'http://localhost/Home/SendEmail',
-            data: { emailTo: 'efriedman92@gmail.com', name: 'Eli'}
-        });
+    function submitZip() {
+        window.location = ("/PhoneSelection");
     }
 </script>
 
@@ -60,7 +56,7 @@
                     <md-input-container class="zip-input">
                         <input type="text" ng-model="zip" maxlength="5" placeholder="Your Zip Code">
                     </md-input-container>
-                    <md-button onclick="sendEmail()" class="zip-submit">Let's GreenTrade</md-button>
+                    <md-button onclick="submitZip()" class="zip-submit">Let's GreenTrade</md-button>
                 </span>
 
                 

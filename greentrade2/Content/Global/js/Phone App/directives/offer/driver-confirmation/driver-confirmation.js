@@ -7,7 +7,7 @@ myApp.controller('confirm', ['$scope', '$timeout', 'phoneService', function MyTa
 
     $scope.editTime = editTime;
     function editTime() {
-        window.location = ("http://localhost/PhoneSelection#!/selectPickup");
+        window.location = ("/PhoneSelection#!/selectPickup");
     }
 
     $scope.saveNewAddress = saveNewAddress;
@@ -16,7 +16,7 @@ myApp.controller('confirm', ['$scope', '$timeout', 'phoneService', function MyTa
         $scope.address = $scope.newAddress;
         $.ajax({
             type: "POST",
-            url: 'http://localhost/PhoneSelection/UpdateSubmissionAddress',
+            url: '/PhoneSelection/UpdateSubmissionAddress',
             data: { address: $scope.newAddress.address1, city: $scope.newAddress.city, state: $scope.newAddress.state, zip: $scope.newAddress.zip, phone: $scope.newAddress.phone }
         })
         .then(

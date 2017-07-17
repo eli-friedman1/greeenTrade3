@@ -7,12 +7,12 @@
     function registerSubmit() {
         $.ajax({
             type: "POST",
-            url: 'http://localhost/Account/RegisterAjax',
+            url: '/Account/RegisterAjax',
             data: { email: $scope.email, pw: $scope.pw, fName: $scope.fName, lName: $scope.lName, address: $scope.address, city: $scope.city, state: $scope.state, zip: $scope.zip, phone: $scope.phone }
         })
         .then(
             function (data) {
-                window.location = ("http://localhost/PhoneSelection#!/selectPickup");
+                window.location = ("/PhoneSelection#!/selectPickup");
                 $timeout(function () {
                     window.location.reload();
                 }, 500);
