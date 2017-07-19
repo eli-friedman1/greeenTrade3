@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+	<html>
+	<head>
+		<link rel= "stylesheet" href="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/main.css">
+		<link rel="stylesheet" href="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/angular-material.min.css">
+		
+		<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/angular.min.js" type="text/javascript"></script>
+		<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/angular-material.min.js" type="text/javascript"></script>
+		<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/angular-animate.min.js" type="text/javascript"></script>
+		<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/angular-aria.min.js" type="text/javascript"></script>
+		<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/ng-zip-input.js"></script>
+		
+		<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/phone-app.js"></script>
+    <script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/phone-service.js"></script>
+<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/directives/login/login.js"></script>
+<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/directives/phone-selector/phone-selector.js"></script>
+<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/directives/offer/offer.js"></script>
+<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/directives/offer/select-pickup/select-pickup.js"></script>
+<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/directives/register/register.js"></script>
+<script src="C:\Users\Eli\Downloads\bersgreentrade-master\greentrade-master/Content/Global/js/Phone App/directives/offer/driver-confirmation/driver-confirmation.js"></script>
+	<!-- 	<link rel= "stylesheet" href="bootstrap.css"> -->
+		<title>greentrade design</title>
+	</head>
+	<body>
+	<!-- nav bar -->
+		<!-- <div class="greyt"> -->
+		<!-- </div> -->
+		<div ng-app="ngZipInput">
+		
+		
+		
+<div>{{subTitle}}</div>
+<div onclick="sendEmail()">yo</div>
+<input ng-model="offerFromSession" /><div>{{offer}}a</div>
+<phone-selector ng-if="offer == null" update-title="updateTitle(subTitle)" phone-data="phoneData" update-offer="updateOffer(offer)"></phone-selector>
+<login ng-if="offer != null && !loggedIn" phone-data="phoneData"></login>
+<offer ng-if="offer != null && loggedIn" update-title="updateTitle(subTitle)" phone-data="phoneData"></offer>
+
+
+</div>
+	</body>
+	</html>

@@ -1,0 +1,37 @@
+﻿<div>
+    Confirmation
+</div>
+<div>
+    Thanks Yoel, you’re booked! Looking forward to picking up your phone on:
+    {{timeSlot.day}}, {{timeSlot.month}} {{timeSlot.date}}, {{timeSlot.year}} between {{timeSlot.timeStart}} and {{timeSlot.timeEnd}}
+    <br /> 
+    from {{address.address1}} {{addrss.address2}}, {{address.city}} {{address.state}} {{address.zip}}.
+</div>
+<div>
+    <span ng-click="editTime()">edit time</span>&nbsp;<span ng-click="editAddress = !editAddress">edit address</span>
+</div>
+
+<div ng-show="editAddress">
+    <md-input-container class="">
+        <input type="text" ng-model="newAddress.address1" placeholder="HOME ADDRESS">
+    </md-input-container>
+    <md-input-container class="">
+        <input type="text" ng-model="newAddress.city" placeholder="CITY">
+    </md-input-container>
+    <md-input-container class="">
+        <input type="text" ng-model="newAddress.state" placeholder="STATE">
+    </md-input-container>
+    <md-input-container class="">
+        <input type="text" ng-model="newAddress.zip" placeholder="ZIP">
+    </md-input-container>
+    <md-input-container class="">
+        <input type="text" ng-model="newAddress.phone" placeholder="PHONE">
+    </md-input-container>
+
+    <md-button ng-click="saveNewAddress()">
+        save
+    </md-button>
+    <md-button ng-click="editAddress = !editAddress">
+        cancel
+    </md-button>
+</div>

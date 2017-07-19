@@ -1,0 +1,534 @@
+:root {
+	--bgd: #333;
+    --green: #55D591;
+}
+
+@font-face {
+    font-family: defaultBoldFont;
+    src: url("/fonts/Camphor Bold.ttf");
+}
+@font-face {
+    font-family: defaultLightFont;
+    src: url("/fonts/Camphor Light.ttf");
+}
+/*nav bar*/
+body{
+  margin: 0;
+
+
+
+}
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+.greyt{
+	height:60px;
+	width:100%;
+	background-color: grey;
+}
+
+/* start top bar  */
+.top{
+	display:flex;;
+	margin: 0px 13vw;
+}
+.logo{
+	font-size: 25px;
+	color:var(--green);
+}
+
+.top-align-container{
+	width:100%;
+	padding: 0px 2vw;
+}
+
+.top-align-outer{
+	width:68%
+}
+
+.how{
+    color: var(--green);
+    font-size: 12px;
+    line-height: 50px;
+    display: inline-block;
+}
+
+.sign{
+	color:var(--green);
+	font-size: 12px;
+	display: inline-table;
+}
+.line{
+	border-left:1px;
+	border-left-color: var(--green);
+	height:15px;
+	vertical-align: middle;
+	display: inline-block;
+	margin: 0 8px 0 8px;
+}
+.join{
+	display: inline-table;
+	color:var(--green);
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* end top bar */
+
+.lets{
+	height:22px;
+	width:80px;
+	display:inline-block;
+	color:white;
+	font-size: 12px;
+	background-color:var(--green);
+	border-radius:500px;
+	line-height: 22px;
+	text-align: center;
+	margin-left: 40px;
+	
+}
+/*start of mid section of main page*/
+.main{
+	height:600px;
+	width:100%;
+	background-image: url("Links/temp.jpg");
+	background-size: cover;
+	
+}
+.pick{
+	color:white;
+	width:500px;
+	margin-left: 36%;
+	padding-top: 180px;
+	font-size: 35px;
+}
+.pick1{
+	color:white;
+	width:500px;
+	margin-left: 38%;
+	font-size: 35px;
+
+}
+
+.zip{
+	color:white;
+	border-bottom:1px solid white;
+	display: inline-block;
+	margin-left: 38%;
+	margin-top: 50px;
+	width:165px;
+	height: 40px;
+	text-align: center;
+	font-size: 15px;
+	line-height: 40px;
+}
+.zip1{
+	color:white;
+	border: 1px solid white;
+	display: inline-block;
+	margin-top: 50px;
+	margin-left: 10px;
+	font-size: 12px;
+	width: 150px;
+	height:40px;
+	line-height: 40px;
+	text-align: center;
+	
+}
+.arrow{
+	height:35px;
+	width:35px;
+	background-color: white;
+	margin-left: 50%;
+	margin-top: 170px;
+	border-radius: 50%;
+	
+
+}
+.point{
+	width: 14px;
+	height: 14px; 
+	top: 20%; 
+	margin: 0 auto; 
+	position: relative;
+	border-right: solid #55D591;
+	border-bottom: solid #55D591;
+	transform:rotate(45deg);
+}
+/*number section*/
+.num1{
+	height:30px;
+	width:30px;
+	border:1px solid #55D591;
+	color:var(--green);
+	border-radius: 50%;
+	margin-left: 21.5%;
+	margin-top: 40px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 30px;
+	display: inline-block;
+	
+
+
+}
+.ev{
+	font-size: 17px;
+	color:var(--green);
+	display: inline-block;
+	margin-left: 9px;
+}
+.first{
+	margin-top: 5px;
+}
+.second{
+	margin-top: -30px;
+}
+.third{
+	margin-top: -27px;
+}
+
+.num2{
+	height:30px;
+	width:30px;
+	border:1px solid #55D591;
+	color:var(--green);
+	border-radius: 50%;
+	margin-left: 43%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 30px;
+	display: inline-block;
+
+	}
+	.num3{
+	height:30px;
+	width:30px;
+	border:1px solid #55D591;
+	color:var(--green);
+	border-radius: 50%;
+	margin-left: 62.5%;
+	margin-top: -30px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 30px;
+	display: inline-block;
+
+	}
+	.get{
+		width:190px;
+		margin-left: 25%;
+		font-size:14px;
+		line-height: 150%;
+		margin-top: 5px;
+	}
+
+	.av{
+		width:160px;
+		margin-left: 46.5%;
+		font-size:14px;
+		line-height: 150%;
+		margin-top: -65px;
+
+
+	}
+
+	.once{
+		width:180px;
+		margin-left: 66%;
+		font-size:14px;
+		line-height: 150%;
+		margin-top: -105px;
+
+
+	}
+/*our process logo*/
+
+.our{
+	height:170px;
+	width:440px;
+	border:10px solid #55D591;
+	margin-left: 32%;
+	margin-top: 100px;
+	border-radius: 30%;
+	color:grey;
+	font-size: 30px;
+	text-align: center;
+	line-height: 170px;
+
+}
+/*end of our process logo*/
+/*enviroment div*/
+.enviroment{
+	width:100%;
+	height:123px;
+	background-color:rgba(85, 213, 145,.2);
+	margin-top: 95px;
+}
+.envwords{
+	color:var(--green);
+	font-size: 25px;
+	text-align: center;
+	width:550px;
+	margin-left: 29%;
+	padding-top: 35px;
+	font-weight: bold;
+	line-height: 32px;
+
+}
+/*image and logo gallery page 1*/
+.pantspic{
+	height:300px;
+	width:32.5vw;
+	/*background-image: url('Links/man.jpg');*/
+	background-size: cover;
+	display:inline-block;
+	/*padding: 100px;*/
+}
+.man{
+	background-image: url('Links/man.jpg');
+}
+.pantspic1{
+	width:32.5vw;
+	display:inline-block;
+	height:auto;
+	position: relative;
+
+}
+.conv{
+	/*width:75%;*/
+	margin-left: 16.7%;
+	font-size: 0;
+}
+.payp{
+	background-image: url('Links/girl.jpg');
+}
+.rec{
+	background-image: url('Links/Recycle.jpg');
+}
+.parg{
+	font-size: 2.1vh;
+	width:74%;
+	line-height: 160%;
+	text-align: center;
+	margin-left:4.5vw;
+	/*padding-bottom: 20px;*/
+	position: absolute;
+	bottom: 6vh;
+
+	/**/
+}
+/*leaf logo "leaf-logo-2 margin-bottom must be minus the height of the leaf logo"*/
+.leaf-logo{
+	
+	width:24%;
+	border-bottom:2px solid #55D591;
+	margin-bottom:-2.8vh;
+	margin-left: 7.7vw;
+	/*position: relative;*/
+	/*display: inline-block;*/
+}
+.leaf-logo-2{
+	
+	width:24%;
+	border-bottom:2px solid #55D591;
+	margin-bottom: 26vh; 
+	margin-left: 18.5vw;
+}
+
+.leaf{
+	height:4vh;
+	width:15px;
+	border:2px solid #55D591;
+	margin-left: 16.3vw;
+	border-radius: 20%;
+	margin-bottom:-2vh; 
+}
+
+.convenience-text{
+	font-size: 3.5vh;
+	color: var(--green);
+	position: absolute;
+	bottom: 30.3vh;
+	margin-left: 11.2vw;
+	font-weight: bold;
+
+}
+.convenience-text-2{
+	font-size: 3.5vh;
+	color: var(--green);
+	position: absolute;
+	bottom: 30.3vh;
+	margin-left: 13vw;
+	font-weight: bold;
+
+}
+
+/*end of images page 1*/
+/*as seen in page 1*/
+
+.logos-page1{
+	width: 100%;
+	height:25vh;
+	background-color:var(--green); 
+	position:absolute;
+}
+.as-seen-text{
+	color:white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 1.8vh;
+	margin-top: 5vh;
+	position:relative;
+}
+.logos{
+	color:white;
+	font-size: 3.5vh;
+	display:inline-block;
+	font-weight: bold;
+	text-align: center;
+	margin-right:7.3vw;
+	margin-top: 6vh;
+}
+.logo1{
+	margin-left:24.3vw;
+}
+/*end of as seen in*/
+/*photo collage oage 1*/
+
+.quo{
+	/*display: inline-block;*/
+	margin-top: 43vh;
+	position: absolute;
+
+}
+#left-arrow-1{
+	margin-left: 17.4vw;
+	width: 2vh;
+	height: 2vh; 
+	top: 20%; 
+	position: relative;
+	border-right:solid #55D591;
+	border-bottom:solid #55D591;
+	transform:rotate(133deg);
+	/*margin-top: -10px;*/
+	border-radius: 1px;
+}
+.quote-face{	
+	height:12vh;
+	width:12vh;
+	border-radius: 50%;
+	background-image: url("Links/profile.jpg");
+	background-size: cover;
+	margin-left: 46vw;
+	margin-top: -9.5vh;
+
+}
+#right-arrow-1{
+	margin-left: 80vw;
+	width: 2vh;
+	height: 2vh; 
+	top: 20%; 
+/*	position: absolute;*/
+	border-right:solid #55D591;
+	border-bottom:solid #55D591;
+	transform:rotate(310deg);
+	border-radius: 1px;
+}
+
+.quote-text{
+	width:30vw;
+	margin-left: 35vw;
+	text-align: center;
+	margin-top: 1vh;
+	font-size: 2.3vh;
+	line-height: 150%;
+	}
+	.quote-name{
+		font-size: 2.3vh;
+		margin-left: 47.7vw;
+		position: relative;
+		top: 54.5vh;
+		font-weight: bold;
+	}
+	/*end of quote collage*/
+	/*bottom*/
+	.bottom-page-1{
+		width:100%;
+		background-color: grey;
+		position: absolute;
+		margin-top:66vh;
+		height:21.9vh;
+	}
+
+	/*end of page 1*/
+
+	/*start of page 2*/
+	.how-page-2{
+		/*width:100%;*/
+		height:19.7vh;
+		background-color:var(--green);
+		color:white;
+		font-size: 4vh;
+		line-height: 19.7vh;
+		padding-left: 41vw;
+
+		
+	}
+
+	.greentrade-market-text{
+		color:var(--green);
+		text-align: center;
+		font-size: 2.4vh;
+		width:52.5vw;
+		font-weight: bold;
+		margin-left: 23vw;
+		line-height: 150%;
+		margin-top: 6.8vh;
+	}
+
+	.get-text{
+		text-align: center;
+		font-size: 2.2vh;
+		width:53vw;
+		margin-left: 22vw;
+		line-height: 150%;
+		margin-top: 3vh;
+	}
+
+	/*large leaf logo css*/
+	.leaf-lines{
+		margin-top: 7vh;
+	}
+
+	.leaf-logo-pg2{
+	
+	width:11.8vw;
+	border-bottom:2px solid #55D591;
+	margin-bottom:-2.8vh;
+	margin-left: 36vw;
+	/*position: relative;*/
+	/*display: inline-block;*/
+	}
+	.leaf-logo-2-pg2{
+	
+	width:11.8vw;
+	border-bottom:2px solid #55D591;
+	margin-bottom: 26vh; 
+	margin-left: 50.8vw;
+	}
+
+	.leaf-pg2{
+	height:4vh;
+	width:1.5vw;
+	border:2px solid #55D591;
+	margin-left: 48.5vw;
+	border-radius: 20%;
+	margin-bottom:-2vh; 
+	}
