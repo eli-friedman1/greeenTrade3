@@ -1,4 +1,10 @@
-﻿@font-face {
+﻿:root {
+	--bgd: #333;
+    --green: #55D591;
+}
+
+
+@font-face {
     font-family: defaultBoldFont;
     src: url("/fonts/Camphor Bold.ttf");
 }
@@ -10,7 +16,7 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
+    padding-top: 55px;
     padding-bottom: 20px;
 }
 
@@ -48,7 +54,71 @@ input[type="select"] {
     }
 }
 
+#bootstrap-overrides .navbar-inverse{
+    background-color: white;
+}
 
+/* start top bar  */
+.top{
+	display:flex;
+	margin: 0px 13vw;
+    background-color: white;
+    max-height: 55px;
+}
+.logo{
+	font-size: 25px;
+	color:var(--green);
+}
+
+.top-align-container{
+	width:100%;
+	padding: 0px 2vw;
+}
+
+.top-align-outer{
+	width:68%
+}
+
+.how{
+    color: var(--green);
+    font-size: 12px;
+    line-height: 55px;
+    display: inline-block;
+}
+
+.sign{
+	color:var(--green);
+	font-size: 12px;
+	display: inline-table;
+}
+.line{
+	border-left:1px;
+	border-left-color: var(--green);
+	height:15px;
+	vertical-align: middle;
+	display: inline-block;
+	margin: 0 8px 0 8px;
+}
+.join{
+	display: inline-table;
+	color:var(--green);
+	font-size: 12px;
+	font-weight: bold;
+}
+.lets{
+	height:22px;
+	width:80px;
+	display:inline-block;
+	color:white;
+	font-size: 12px;
+	background-color:var(--green);
+	border-radius:500px;
+	line-height: 22px;
+	text-align: center;
+	margin-left: 40px;
+	
+}
+/* end top bar */
 
 .home-top {
     width: 100%;
@@ -112,3 +182,6 @@ input[type="select"] {
     margin: auto;
 }
 
+.sub-nav-page-title {
+    background-image: url('/Content/Global/Img/Backgroundtexture.svg');
+}
