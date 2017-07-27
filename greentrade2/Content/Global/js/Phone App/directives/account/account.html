@@ -1,0 +1,14 @@
+﻿<div class="sub-nav-page-title" layout="row" layout-align="center center">
+    MY ACCOUNT SUMMARY
+</div>
+<div>
+    Recent GreenTrades:
+</div>
+<div ng-repeat="trade in trades">
+    <div ng-click="tradeClicked($index)">
+        {{trade.brand}} {{trade.submissionTime}} {{trade.status}} 
+    </div>
+    <div ng-if="clicked[$index] == true">
+        {{trade.timeSlot}} {{trade.brand}} {{trade.series}} {{trade.carrier}} {{trade.color}} {{trade.GB}} {{trade.address1}} {{trade.city}} {{trade.state}}
+    </div>
+</div>

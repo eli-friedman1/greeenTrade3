@@ -1,0 +1,146 @@
+﻿<div>
+    <!-- Start Banner Box -->
+    <div class="banner-box">
+        <!--<img src="images/banner.jpg" alt="" /> -->
+        <div class="cpation">
+            <div class="cpation-text text-center">
+                <h1>Pick-up and payment for<br />your unwanted phone</h1>
+                <div class="formstuff">
+                    <input class="" type="text" name="zipcode" value="" placeholder="YOUR ZIP CODE" />
+                    <input type="submit" value="LET'S GREEN TRADE" />
+                </div>
+
+            </div>
+        </div>
+        <div class="arrow-bottom">
+            <a href="#"><div class="point"></div></i></a>
+        </div>
+    </div>
+    <!-- End Banner Box -->
+    <!-- Start shedule Box -->
+    <div class="shedule-box">
+        <div class="centering">
+            <div class="shedule-cont" layout="row" layout-xs="column">
+                <div class="shedule-list" flex-xs="100" flex="33">
+                    <h3><span>1</span>EVALUATE</h3>
+                    <p>Get a free evaluation for the<br />amount GreenTrade will pay<br />for your unwanted phone.</p>
+                </div>
+                <div class="shedule-list" flex-xs="100" flex="33">
+                    <h3><span>2</span>SCHEDULE</h3>
+                    <p>Available 7 days a week<br />between 6-10pm.<br />Schedule today to have<br />a friendly GreenTrade<br />driver pickup your device.</p>
+                </div>
+                <div class="shedule-list" flex-xs="100" flex="33">
+                    <h3><span>3</span>GET PAID</h3>
+                    <p>Once GreenTrade recieves<br />the phone in agreed upon<br />condition, you get paid!</p>
+                </div>
+            </div>
+        </div>
+        <div class="centering">
+            <div class="our-process" layout="row" layout-xs="column">
+                <div class="ourtext" flex>
+                    <img src="/Content/Global/Img/our-process.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End shedule Box -->
+    <!-- Start Banner Box -->
+    <div class="enviroment-box">
+        <div class="centering">
+            <div class="enviroment-cont" layout="row" layout-xs="column">
+                <div class="enviroment-text" flex>
+                    <p>The environmentally friendly way to get paid top dollar for your unwanted cell phone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End enviroment Box -->
+    <!-- photos -->
+    <div class="conv1">
+        <div class="centering">
+            <div class="conv-list">
+                <div class="conv-cont">
+                    <div class="conv-left">
+                        <div class="conv-avtar"><img src="/Content/Global/Img/man1.jpg" alt="" /></div>
+                    </div>
+                    <div class="conv-right">
+                        <div class="conv-text">
+                            <h3>Convenience</h3>
+                            <p>Get paid for your old and unwanted devices without leaving the confines of your home. We come directly to your doorstep to pick-up your device. The best and easiest way to sit on your couch and get paid.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-cont">
+                    <div class="conv-left">
+                        <div class="conv-text desktop">
+                            <h3>Get Paid</h3>
+                            <p>We offer top dollar for your unwanted device. Get a free quote to see how much you can get for your old unwanted phone. You can receive payment via check, Paypal, or gift card in as quick as 72 hours!</p>
+                        </div>
+                        <div class="conv-avtar mobile"><img src="/Content/Global/Img/girl1.jpg" alt="" /></div>
+                    </div>
+                    <div class="conv-right">
+                        <div class="conv-avtar desktop"><img src="/Content/Global/Img/girl1.jpg" alt="" /></div>
+                        <div class="conv-text mobile">
+                            <h3>Get Paid</h3>
+                            <p>We offer top dollar for your unwanted device. Get a free quote to see how much you can get for your old unwanted phone. You can receive payment via check, Paypal, or gift card in as quick as 72 hours!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-cont">
+                    <div class="conv-left">
+                        <div class="conv-avtar"><img src="/Content/Global/Img/Recycle1.jpg" alt="" /></div>
+                    </div>
+                    <div class="conv-right">
+                        <div class="conv-text">
+                            <h3>Eco Friendly</h3>
+                            <p>We are intent on giving new life to old phones and making sure they don't end up in landfills. We strive to diminish electronic waste and to dispose of devices in an environmentally friendly manner.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of photo -->
+    <!-- as seen in page 1 -->
+    <div class="logos-page1">
+        <div class="as-seen-text">
+            AS SEEN IN
+        </div>
+
+        <div class="logos logo1">
+            LOGO
+        </div>
+        <div class="logos">
+            LOGO
+        </div>
+        <div class="logos">
+            LOGO
+        </div>
+        <div class="logos">
+            LOGO
+        </div>
+    </div>
+    <!-- 	end of logo section page 1 -->
+    <!-- Start Slider -->
+    <div class="slider-block" ng-controller="MainCtrl">
+        <div class="centering">
+            <div class="container slider" layout="row" layout-sm="column" layout-xs="column">
+                <!-- <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+                     ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                     ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}"> -->
+                <ul>
+                    <li ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+                        ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+                        ng-hide="!isCurrentSlideIndex($index)">
+                        <div class="sliderimg"><img src="{{slide.image}}" alt="" /></div>
+                        <p>{{slide.description}}</p>
+                        <h4>{{slide.client}}</h4>
+                    </li>
+                </ul>
+                <span class="arrow prev" ng-click="nextSlide()"></span>
+                <span class="arrow next" ng-click="prevSlide()"></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Slider -->
+</div>

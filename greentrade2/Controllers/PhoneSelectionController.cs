@@ -64,7 +64,15 @@ namespace greentrade2.Controllers
                 }
             }
             Session["phoneId"] = phoneId;
+
             Session["offer"] = offer;
+            Session["brand"] = brand;
+            Session["series"] = series;
+            Session["carrier"] = carrier;
+            Session["color"] = color;
+            Session["GB"] = GB;
+            Session["condition"] = condition;
+
 
             //check if user is logged in to see where to route to
             string userFirstName = "";
@@ -124,15 +132,19 @@ namespace greentrade2.Controllers
                                                                                 ,[PhoneID]
                                                                                 ,[AddressID]
                                                                                 ,[TimeSlotSelected]
-                                                                                ,[SubmissionTime])
-                                                                  VALUES (@userID, @phoneID, @addressID, @timeSlotSelected, @submissionTime)
+                                                                                ,[SubmissionTime]
+                                                                                ,[Status]
+                                                                                ,[PriceOffered]                         )
+                                                                  VALUES (@userID, @phoneID, @addressID, @timeSlotSelected, @submissionTime, 0, @priceOffered)
                                                                   SET @ID = SCOPE_IDENTITY();", con))
                     {
                         cmd.Parameters.Add(new SqlParameter("@userID", user.Id));
                         cmd.Parameters.Add(new SqlParameter("@phoneID", phoneId));
                         cmd.Parameters.Add(new SqlParameter("@addressID", addressId));
                         cmd.Parameters.Add(new SqlParameter("@timeSlotSelected", timeSlot));
-                        cmd.Parameters.Add(new SqlParameter("@submissionTime", DateTime.Now.ToUniversalTime()));
+                        cmd.Parameters.Add(new SqlParameter("@submissionTime", DateTime.Now));
+                        cmd.Parameters.Add(new SqlParameter("@priceOffered", Session["offer"] ?? 0));
+                        
 
                         SqlParameter param = new SqlParameter("@ID", SqlDbType.Int, 4);
                         param.Direction = ParameterDirection.Output;

@@ -38,12 +38,17 @@
 //    };
 //});
 
-myApp.controller('selectPickup', ['$scope', '$timeout', 'phoneService', function MyTabsController($scope, $timeout, phoneService) {
+myApp.controller('selectPickup', ['$scope', '$timeout', 'phoneService', '$window', function MyTabsController($scope, $timeout, phoneService, $window) {
     $timeout(function () {
         //  $scope.updateTitleInner({ subTitle: 'PLEASE SELECT A PICK UP TIME' });
     });
 
+
     $scope.phoneData = phoneService.getPhoneData();
+    if ($scope.phoneData.offer == null) {
+        window.location = ("/#!/phoneselection");
+    }
+    //TODO if not logged in send to login page
 
     var today = new Date();
     var hours = ['6:00-7:00 PM', '7:00-8:00 PM', '8:00-9:00 PM', '9:00-10:00 PM'];
@@ -102,7 +107,7 @@ myApp.controller('selectPickup', ['$scope', '$timeout', 'phoneService', function
         phoneService.setPickUpTime(pickUpTime);
         $.ajax({
             type: "POST",
-            url: 'http://localhost/PhoneSelection/SelectTimeSlot',
+            url: '/PhoneSelection/SelectTimeSlot',
             data: { timeSlot: $scope.selectedSlot }
         })
         .then(
@@ -115,7 +120,7 @@ myApp.controller('selectPickup', ['$scope', '$timeout', 'phoneService', function
                     zip: data.zip,
                 }
                 phoneService.setAddress(address);
-                window.location = ("http://localhost/PhoneSelection#!/confirm");
+                window.location = ("/#!/confirm");
                 //window.location.reload();
                 //$timeout(function () {
                 //    // $scope.offer = data.offer;

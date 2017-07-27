@@ -7,7 +7,7 @@ myApp.controller('confirm', ['$scope', '$timeout', 'phoneService', function MyTa
 
     $scope.editTime = editTime;
     function editTime() {
-        window.location = ("/PhoneSelection#!/selectPickup");
+        window.location = ("/#!/selectPickup");
     }
 
     $scope.saveNewAddress = saveNewAddress;

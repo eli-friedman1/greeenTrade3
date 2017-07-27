@@ -15,6 +15,7 @@ using System.Web.UI;
 using Owin;
 using greentrade2.Models;
 using System.Data;
+using System.Collections.Generic;
 
 namespace greentrade2.Controllers
 {
@@ -507,6 +508,114 @@ namespace greentrade2.Controllers
             HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             // AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
+        }
+
+        public JsonResult GetMyTrades()
+        {
+            bool success = true;
+            string errors = "";
+
+            var contextUser = System.Web.HttpContext.Current.User;
+
+            bool loggedIn = (contextUser != null) && (contextUser.Identity.IsAuthenticated);
+            if (!loggedIn)
+            {
+                success = false;
+            }
+
+            ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(contextUser.Identity.GetUserId());
+
+            //DateTime timeSlot = null;
+            //int status = 0;
+            ////string paymentPreference;
+            ////string paymentEmail;
+            //string address1 = "";
+            //string address2 = "";
+            //string city = "";
+            //string state = "";
+            //string zip = "";
+            //string brand = "";
+            //string series = "";
+            //string carrier = "";
+            //string color = "";
+            //int GB = 0;
+            //string condition = "";
+
+            var trades = new List<AccountItems>();
+
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                //TimeZoneInfo timeZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                //var time = timeZoneInfo.ConvertTime(gmTime, timeZone);
+                con.Open();
+                //
+                // The following code shows how you can use an SqlCommand based on the SqlConnection.
+                //
+                using (SqlCommand cmd = new SqlCommand(@"SELECT [PhoneID], [AddressID], [TimeSlotSelected], [SubmissionTime], [Status] ,[PaymentPreference] ,[PaymentEmail] 
+                                                            from PhoneSubmissions
+                                                            where [UserID] = @userId", con))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@userId", user.Id));
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var trade = new AccountItems()
+                            {
+                                phoneId = reader.GetInt32(0),
+                                addressId = reader.GetInt32(1),
+                                timeSlot = reader.GetDateTime(2).ToString(),
+                                submissionTime = reader.GetDateTime(3).ToString(),
+                                status = reader.GetInt32(4) == 0 ? "WAITING FOR PICKUP" : (reader.GetInt32(4) == 1 ? "PAYMENT COMPLETED" : "CANCELED")
+                            };
+                            trades.Add(trade);                            
+                        }
+                    }
+                }
+
+                foreach (AccountItems trade in trades)
+                {
+                    using (SqlCommand cmd = new SqlCommand(@"SELECT Top 1 [Brand] ,[Series], [Carrier], [Color], [GB], [Condition]
+                                                                from Phones 
+                                                                where [PhoneID] = @phoneId", con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@phoneId", trade.phoneId));
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                trade.brand = reader.GetString(0);
+                                trade.series = reader.GetString(1);
+                                trade.carrier = reader.GetString(2);
+                                trade.color = reader.GetString(3);
+                                trade.GB = reader.GetInt32(4);
+                                trade.condition = reader.GetString(5);
+                            }
+                        }
+                    }
+                    using (SqlCommand cmd = new SqlCommand(@"SELECT Top 1 Address1, Address2, City, State, Zip 
+                                                            from Addresses 
+                                                            where AddressID = @addressId", con))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@addressId", trade.addressId));
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                trade.address1 = reader.GetString(0);
+                                trade.address2 = reader.IsDBNull(1) ? null : reader.GetString(1);
+                                trade.city = reader.GetString(2);
+                                trade.state = reader.GetString(3);
+                                trade.zip = reader.GetString(4);
+                            }
+                        }
+                    }
+                }
+            }
+            return Json(new
+                {
+                    success, trades
+                });
         }
 
         //

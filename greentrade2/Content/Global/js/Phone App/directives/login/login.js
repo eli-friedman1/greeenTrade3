@@ -29,6 +29,7 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
     $scope.email;
     $scope.pw;
     $scope.loginSubmit = loginSubmit;
+    $scope.phoneData = phoneService.getPhoneData();
     function loginSubmit() {
         $.ajax({
             type: "POST",
@@ -37,8 +38,14 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
         })
         .then(
             function (data) {
-                window.location = ("/PhoneSelection#!/selectPickup");
-                window.location.reload();
+                if ($scope.phoneData.offer == null) {
+                    window.location = ("/#!/phoneselection");
+                    window.location.reload();
+                } else {
+                    window.location = ("/#!/selectpickup");
+                    window.location.reload();
+                }
+                
                 //$timeout(function () {
                 //    // $scope.offer = data.offer;
                 //    $scope.updateOffer({ offer: data.offer });
@@ -48,6 +55,6 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
     }
     $scope.register = register;
     function register() {
-        window.location = ("/PhoneSelection#!/register");
+        window.location = ("/#!/register");
     }
 }]);

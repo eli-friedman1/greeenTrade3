@@ -1,13 +1,14 @@
 ﻿myApp.service('phoneService', function () {
-    var phoneData = {
-        brandSelected: "",
-        seriesSelected: "",
-        carrierSelected: "",
-        colorSelected: "",
-        GBSelected: 0,
-        conditionSelected: "",
-        offer: 0
-    };
+    var phoneData;
+    //var phoneData = {
+    //    brandSelected: null,
+    //    seriesSelected: null,
+    //    carrierSelected: null,
+    //    colorSelected: null,
+    //    GBSelected: null,
+    //    conditionSelected: null,
+    //    offer: null
+    //};
     //var phoneData = {
     //    brandSelected,
     //    seriesSelected,
@@ -57,4 +58,5 @@
     this.getAddress = function () {
         return address;
     }
+
 });

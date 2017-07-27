@@ -1,4 +1,10 @@
-﻿<offer></offer>
+﻿<div ng-if="phoneData.offer != null" class="sub-nav-page-title" layout="row" layout-align="center center">
+    START YOUR GREENTRADE
+</div>
+<div ng-if="phoneData.offer == null" class="sub-nav-page-title" layout="row" layout-align="center center">
+    SIGN IN
+</div>
+<offer ng-if="phoneData.offer != null"></offer>
 <md-input-container class="">
     <input type="text" ng-model="email" placeholder="email">
 </md-input-container>

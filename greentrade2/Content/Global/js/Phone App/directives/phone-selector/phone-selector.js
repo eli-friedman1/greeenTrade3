@@ -3,8 +3,6 @@
     //    $scope.updateTitle({ subTitle: 'START YOUR GREENTRADE' });
     //});
 
-
-
     $scope.phoneData = phoneService.getPhoneData();
 
     $scope.phoneBrands = {
@@ -108,9 +106,9 @@
                 //});
 
                 if (!data.loggedIn) {
-                    window.location = "/PhoneSelection#!/login";
+                    window.location = "/#!/login";
                 } else {
-                    window.location = "/PhoneSelection#!/selectPickup";
+                    window.location = "/#!/selectpickup";
                 }
             }
         );

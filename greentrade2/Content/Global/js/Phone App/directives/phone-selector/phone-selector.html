@@ -1,4 +1,7 @@
-﻿<div class="phone-select-container" layout="column" layout-align="center center">
+﻿<div class="sub-nav-page-title" layout="row" layout-align="center center">
+    START YOUR GREENTRADE
+</div>
+<div class="phone-select-container" layout="column" layout-align="center center">
     <div class="state-select-container">
         <div class="state-text">Select your cell phone <span style="font-weight:bold;">brand</span>:</div>
         <div class="state-button-container" layout="row" layout-align="space-around center">
@@ -29,7 +32,7 @@
             </md-button>
         </div>
     </div>
-    <div ng-if="isCarrierSelected" class="state-select-container">
+    <div ng-if="phoneData.carrierSelected.length > 0" class="state-select-container">
         
         <div class="state-text">Select your <span style="font-weight:bold;">{{phoneData.brandSelected}} {{phoneData.seriesSelected}} {{phoneData.carrierSelected}}</span> phone features:</div>
         <div style="display:flex">

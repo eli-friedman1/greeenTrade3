@@ -14,10 +14,28 @@
         window.location = ("/PhoneSelection");
     }
 </script>
-
- 
+<script>
+    phoneDataFromSession = {
+        brandSelected: <%= Session["brand"] != null ? "\"" + Session["brand"] + "\"" : "null" %>,
+        seriesSelected: <%= Session["series"] != null ? "\"" + Session["series"] + "\"" : "null" %>,
+        carrierSelected: <%= Session["carrier"] != null ? "\"" + Session["carrier"] + "\"" : "null" %>,
+        colorSelected: <%= Session["color"] != null ? "\"" + Session["color"] + "\"" : "null" %>,
+        GBSelected: <%= Session["GB"] != null ? Session["GB"] : "null" %>,
+        conditionSelected: <%= Session["condition"] != null ? "\"" + Session["condition"] + "\"" : "null" %>,
+        offer : <%= Session["offer"] != null ? Session["offer"] : "null" %>
+    };
+    loggedIn = <%= HttpContext.Current.User.Identity.IsAuthenticated ? "true" : "false" %>;
+    function sendEmail() {
+        $.ajax({
+            type: "POST",
+            url: 'http://localhost/Home/SendEmail',
+            data: { emailTo: 'efriedman92@gmail.com', name: 'Eli'}
+        });
+    }
+</script>
 
 <head>
+
     <title></title>
 </head>
     
@@ -34,7 +52,7 @@
 
     
 
-    <div ng-app="ngZipInput">
+<%--    <div ng-app="ngZipInput">
         
         <div class="home-top">
             <div class="home-nav-container" layout="row" layout-align="space-around start">
@@ -61,19 +79,15 @@
 
                 
             </div>
-
-<%--            <div class="circle-container">
-                <span class="glyphicon glyphicon-chevron-down" style="    display: table-cell; font-size: 1.5em; color: #50d691"></span>
-            </div>--%>
         </div>
 
-        <div class="img-container" layout="row" layout-align="center start">
-           <img src='\Content\Global\Img\How It works graphic.jpg' class="img-centered" alt='[]' />
-        </div>
+        
          
-    </div>
+    </div>--%>
+    
 
-   
+     <div ng-view></div> 
+    
 <%--    <div style='position: absolute; z-index: -1; left: 0; top: 0; width: 100%; height: 400px'>--%>
     
 <%--    </div>--%>
