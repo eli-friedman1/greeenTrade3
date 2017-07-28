@@ -31,6 +31,27 @@ myApp.config(function ($routeProvider, $locationProvider) {
         templateUrl: "/Content/Global/js/Phone App/directives/account/account.html",
         controller: "account"
     })
+    .when("/contact", {
+        templateUrl: "/Content/Global/js/Phone App/directives/contact/contact.html",
+        controller: "contact"
+    })
+    .when("/about", {
+        templateUrl: "/Content/Global/js/Phone App/directives/about/about.html",
+        controller: "about"
+    })
+    .when("/faqs", {
+        templateUrl: "/Content/Global/js/Phone App/directives/faqs/faqs.html",
+        controller: "faqs"
+    })
+    .when("/howitworks", {
+        templateUrl: "/Content/Global/js/Phone App/directives/howitworks/howitworks.html",
+        controller: "howitworks"
+    })
+    .when("/whygreentrade", {
+        templateUrl: "/Content/Global/js/Phone App/directives/whygreentrade/whygreentrade.html",
+        controller: "whygreentrade"
+    })
+
     //.when("/paris", {
     //    templateUrl: "paris.htm",
     //    controller: "parisCtrl"
@@ -74,7 +95,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
 //});
 
 myApp.controller('phoneAppController', ['$scope', '$window', 'phoneService', function ($scope, $window, phoneService) {
-
+    phoneService.loggedIn.value = $window.loggedIn;
   //  vm = this;
    // $scope.brand = 'ff';
     //vm.series;
@@ -99,7 +120,7 @@ myApp.controller('phoneAppController', ['$scope', '$window', 'phoneService', fun
     phoneService.setPhoneData($window.phoneDataFromSession);
     
     $scope.offer = $window.offerFromSession;
-    $scope.loggedIn = $window.loggedIn;
+    $scope.loggedIn = phoneService.loggedIn;
 
     $scope.updateOffer = updateOffer;
     function updateOffer(offer) {

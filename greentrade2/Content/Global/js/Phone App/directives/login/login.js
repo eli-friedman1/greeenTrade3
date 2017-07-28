@@ -38,12 +38,13 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
         })
         .then(
             function (data) {
+                phoneService.loggedIn.value = true;
                 if ($scope.phoneData.offer == null) {
                     window.location = ("/#!/phoneselection");
-                    window.location.reload();
+                  //  window.location.reload();
                 } else {
                     window.location = ("/#!/selectpickup");
-                    window.location.reload();
+                  //  window.location.reload();
                 }
                 
                 //$timeout(function () {

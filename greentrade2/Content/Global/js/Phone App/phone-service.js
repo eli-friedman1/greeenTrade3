@@ -1,4 +1,7 @@
 ﻿myApp.service('phoneService', function () {
+    
+    this.loggedIn = { value: false };
+
     var phoneData;
     //var phoneData = {
     //    brandSelected: null,

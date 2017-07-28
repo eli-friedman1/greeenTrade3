@@ -54,6 +54,11 @@
 <script src="/Content/Global/js/Phone App/directives/register/register.js"></script>
 <script src="/Content/Global/js/Phone App/directives/offer/driver-confirmation/driver-confirmation.js"></script>
 <script src="/Content/Global/js/Phone App/directives/account/account.js"></script>
+<script src="/Content/Global/js/Phone App/directives/contact/contact.js"></script>
+<script src="/Content/Global/js/Phone App/directives/about/about.js"></script>
+<script src="/Content/Global/js/Phone App/directives/faqs/faqs.js"></script>
+<script src="/Content/Global/js/Phone App/directives/howitworks/howitworks.js"></script>
+<script src="/Content/Global/js/Phone App/directives/whygreentrade/whygreentrade.js"></script>
 
     <script type = 'text/javascript' >
         var appInsights=window.appInsights||function(config)
@@ -130,26 +135,44 @@
 					<nav class="menuBox">
 						<a href="#" class="toggle" ng-click="box1=!box1"><span></span><span></span><span></span></a>
 						<ul data-slide-toggle="box1" data-slide-toggle-duration="700">
-							<li><a href="how-it-works.html">How it works</a></li>
-							<li><a href="#">About us</a></li>
-							<li><a href="faq.html">FAQ's</a></li>
-							<li><a href="why-greentrade.html">why green trade?</a></li>
+							<li><a href="/#!/howitworks">How it works</a></li>
+							<li><a href="/#!/about">About us</a></li>
+							<li><a href="/#!/faqs">FAQ's</a></li>
+							<li><a href="/#!/whygreentrade">Why GreenTrade?</a></li>
 						</ul>
 					</nav>
 				</div>
+                
 				<div class="top-align-container top-align-outer" layout="row" layout-align="space-between center">
 					<div class="header-top">
-						<div class="sign">
-							<a href="#">Sign In</a>
-						</div> 
-						<div class="line">	
-						</div>
-						<div class="join">
-							<a href="#"> Join Now</a>
-						</div>
-						<div class= "lets">
-							<a href="#">Let's Trade!</a>
-						</div>
+                      <%--  <asp:LoginView runat="server" ViewStateMode="Disabled">--%>
+                            <div ng-if="!loggedIn.value">
+                                <div class="sign">
+							        <a href="/#!/login">Sign In</a>
+						        </div> 
+						        <div class="line">	
+						        </div>
+						        <div class="join">
+							        <a href="#"> Join Now</a>
+						        </div>
+                                <div class= "lets">
+							        <a href="/#!/phoneselection">Let's Trade!</a>
+						        </div>
+                            </div>
+                            <div ng-if="loggedIn.value">
+                                <div class="sign">
+							        <a href="/Account/Logoff">Log Off</a>
+						        </div> 
+						        <div class="line">	
+						        </div>
+						        <div class="join">
+							        <a href="/#!/account">My Account</a>
+						        </div>
+                                <div class= "lets" style="margin-left: 1vw">
+							        <a href="/#!/phoneselection">Let's Trade!</a>
+						        </div>
+                            </div>
+                      <%--  </asp:LoginView>--%>
 					</div>
 				</div>
 

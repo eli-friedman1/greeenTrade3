@@ -38,11 +38,11 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 .top{
 	display:flex;
 	margin: 0px 13vw;
-    height: 55px;
+    /*height: 55px;*/
 }
 /*.logo{ padding: 8px 0 0;color:var(--green);}*/
 .logo img { max-width:100%; height: auto; display: block;}
-.navbar-brand { padding: 15px 3.5vw !important; }
+.logo .navbar-brand { padding: 15px 3.5vw; }
 .top-align-container{
 	width:100%;
 	padding: 0px 2vw;
