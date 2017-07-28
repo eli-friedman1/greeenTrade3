@@ -122,9 +122,7 @@
 				<div class="top-align-outer" layout="row" layout-align="center center">
 					<div class="logo">
 						<a class="navbar-brand" runat="server" href="~/">
-                            <div >
-                                <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
-                            </div>
+                            <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
                         </a>
 					</div>
 				</div>

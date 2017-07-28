@@ -42,6 +42,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 }
 /*.logo{ padding: 8px 0 0;color:var(--green);}*/
 .logo img { max-width:100%; height: auto; display: block;}
+.navbar-brand { padding: 15px 3.5vw !important; }
 .top-align-container{
 	width:100%;
 	padding: 0px 2vw;
@@ -543,7 +544,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.menuBox .toggle { display: none;}
 	.menuBox ul  { margin: 0; padding: 0;}
 	.menuBox ul li { list-style: none; display: inline-block;}
-	.menuBox ul li a { padding: 10px 9px; font-size: 13px; color: #50d691;  font-family: 'Camphor'; font-weight: 300; line-height: 50px; text-decoration: none; display: block;}
+	.menuBox ul li a { padding: 10px 9px; font-size: 13px; color: #50d691;  font-family: 'Camphor'; font-weight: 300; line-height: 35px; text-decoration: none; display: block; height: 55px;}
 	.menuBox ul li a:hover { background: #50d691; color: #fff;} 
 	
 	/* Slider */
@@ -552,13 +553,13 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.slider-block .arrow { position: absolute; z-index: 1002; display: block;top: 10%; width: 30px; height: 52px;outline: none; cursor: pointer;background: url('/Content/Global/Img/blank.gif') no-repeat; margin: 0;}
 	.slider-block .arrow.prev {left: 0px; background-image: url('/Content/Global/Img/left-arrow.png'); transition: 0.2s linear all;}
 	.slider-block .arrow.next {right: 0px;background-image: url('/Content/Global/Img/right-arrow.png'); transition: 0.2s linear all;}
-	.slider-block ul  {  margin: 0 auto; text-align: center; width: 100%; position: relative; overflow: hidden; height: 300px;}
+	.slider-block ul  {  margin: 0 auto; text-align: center; width: 100%; position: relative; overflow: hidden; height: 35vh;}
 	.slider-block ul li { margin: 0 auto; list-style: none; width: 100%;}
 	.slider-block ul li .sliderimg { width: 80px; height: 80px; margin: 0 auto;}
 	.slider-block ul li .sliderimg img { max-width: 100%; height: auto; border-radius: 50%;}
 	.slider-block ul li p { margin: 20px auto ; font-size: 18px; color: #474f59; font-family: 'Camphor'; font-weight: 400; width: 60%;}
 	.slider-block ul li h4 {margin: 5px 0; font-size: 24px; color: #474f59; font-family: 'Camphor'; font-weight:600;}
-	.slider-block  { position: absolute; margin-top: 15vh; height: 20vh; width: 100%;}
+	.slider-block  { position: inherit; margin: 7vh 0px; height: 100%; width: 100%;}
 	/*.header-top {padding: 22px 0 0;}*/
 	
 	/* Banner Box */
@@ -579,16 +580,16 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	
 	/* shedule-box */
 	.shedule-box { padding: 35px 0;}
-	.shedule-box  h3 {padding-left:60px; font-size: 24px; color: #50d691; font-family: 'Camphor'; font-weight: 600; position: relative}
-	.shedule-box p {padding-left: 60px; font-size: 16px; color: #606770; font-family: 'Camphor'; }
-	.shedule-box .shedule-cont { width: 90%; margin: 0 auto;}
-	.shedule-box  h3  span { border: 2px solid; border-radius: 50%; height: 37px; left: 0; padding: 5px;text-align: center;top: -4px; width: 37px; display: inline-block; position: absolute; line-height: 23px;}
+	.shedule-box  h3 {padding-left:4vw; font-size: 1.5vw; color: #50d691; font-family: 'Camphor'; font-weight: 600; position: relative}
+	.shedule-box p {padding-left: 4vw; font-size: 15px; color: #606770; font-family: 'Camphor'; }
+	.shedule-box .shedule-cont { width: 86%; margin: 0 auto;}
+	.shedule-box  h3  span { border: 1px solid; border-radius: 50%; height: 33px; left: 0; padding: 5px;text-align: center;top: -7px; width: 33px; display: inline-block; position: absolute; line-height: 22px;}
 	.shedule-box .our-process img { margin: 40px auto 0; max-width: 100%; height: auto;}
 	.shedule-box .our-process { width: 100%; text-align: center;}
 	
 	/* enviroment-box */
-	.enviroment-box { padding: 20px 0; background: url('/Content/Global/Img/footer-top-bg1.png')no-repeat; background-size: cover;  text-align: center;}
-	.enviroment-box p{font-size: 32px; color: #4cd58e; font-family: 'Camphor'; font-weight: 600;width:75%; margin: 0 auto; line-height: 36px; }
+	.enviroment-box { padding: 28px 0; background: url('/Content/Global/Img/footer-top-bg1.png')no-repeat; background-size: cover;  text-align: center;}
+	.enviroment-box p{font-size: 30px; color: #4cd58e; font-family: 'Camphor'; font-weight: 600;width:75%; margin: 0 auto; line-height: 36px; }
 	
 	/* conv1 */
 	.conv1 .conv-list { width: 100%;}
