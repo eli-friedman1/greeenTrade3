@@ -1,11 +1,16 @@
-﻿<div ng-if="phoneData.offer != null" class="sub-nav-page-title" layout="row" layout-align="center center">
-    START YOUR GREENTRADE
+﻿<div ng-if="phoneData.offer != null" class="offer-box">
+    <div class="innerpage-title">
+        <h1>YOUR GREENTRADE OFFER</h1>
+    </div>
 </div>
-<div ng-if="phoneData.offer == null" class="sub-nav-page-title" layout="row" layout-align="center center">
-    SIGN IN
+<div ng-if="phoneData.offer == null" class="offer-box">
+    <div class="innerpage-title">
+        <h1>SIGN IN</h1>
+    </div>
 </div>
+
 <offer ng-if="phoneData.offer != null"></offer>
-<md-input-container class="">
+<!--<md-input-container class="">
     <input type="text" ng-model="email" placeholder="email">
 </md-input-container>
 <md-input-container class="">
@@ -16,4 +21,42 @@
 </md-button>
 <md-button ng-click="register()">
     Create New Account
-</md-button>
+</md-button>-->
+
+<div class="centering" layout="row" layout-align="center start">
+    <!-- Start Brand Box -->
+    <div class="brand-box pickuptime-box">
+        <div class="brand-title">
+            <h3>Please sign in or create a new account to schedule a pickup time:</h3>
+        </div>
+        <div class="signin-details" layout="row" layout-xs="column" layout-sm="column">
+            <div class="signin-text" flex-xs="100" flex-sm="100" flex="60">
+                <h4>Sign In</h4>
+                <div class="form">
+                    <div class="login-form-inputs">
+                        <div class="form-group-nonbs">
+                            <input ng-model="email" type="text" placeholder="EMAIL" required="" />
+                        </div>
+                        <div class="form-group-nonbs">
+                            <input ng-model="pw" type="password" placeholder="PASSWORD" required="" />
+                        </div>
+                    </div>
+                    <div class="form-group-nonbs">
+                        <a class="keep-in" href="#">Keep me logged in</a>
+                        <a class="forget" href="#">Forgot Password?</a>
+                    </div>
+                    <div class="form-group-nonbs">
+                        <button ng-click="loginSubmit()" class="btn btn-success">Log in</button>
+                    </div>
+                </div>
+            </div>
+            <div class="createacount-text" flex-xs="100" flex-sm="100" flex="40">
+                <div class="account-link">
+                    <img src="/Content/Global/Img/kids1.jpg" alt="" />
+                    <a class="btn" href="/#!/register">Create New Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Brand Box -->
+</div>

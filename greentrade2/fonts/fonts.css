@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'Camphor';
+	src: url('../fonts/Camphor-Light.eot');
+	src: url('../fonts/Camphor-Light.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Camphor-Light.woff') format('woff'),
+		url('../fonts/Camphor-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Camphor';
+	src: url('../fonts/Camphor-Bold.eot');
+	src: url('../fonts/Camphor-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Camphor-Bold.woff') format('woff'),
+		url('../fonts/Camphor-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+

@@ -1,8 +1,46 @@
-﻿<div>
+﻿<!--<div>
     product: {{phoneData.brandSelected}} {{phoneData.seriesSelected}}, {{phoneData.colorSelected}} ({{phoneData.carrierSelected}}) {{phoneData.GBSelected}} GB
 </div>
 <div>
     GreenTrade offer : ${{phoneData.offer}}
-</div>
+</div>-->
 <!--<select-pickup update-title-inner="updateTitleInner(subTitle)"></select-pickup>
 <driver-confirmation update-title-inner="updateTitleInner(subTitle)"></driver-confirmation>-->
+
+<div class="centering" layout="row" layout-align="center start">
+    <!-- Start Brand Box -->
+    <div class="brand-box phonedetails-box">
+        
+        <div class="phone-details" layout="row" layout-xs="column">
+            
+            <div class="phonedet-text" flex-xs="100" flex-sm="60" flex="70">
+                <div class="brand-title">
+                    <h3>YOUR PHONE DETAILS</h3>
+                </div>
+                <ul>
+                    <li>
+                        <span>PRODUCT:</span>
+                        <span><strong>{{phoneData.brandSelected}} {{phoneData.seriesSelected}}, {{phoneData.colorSelected}} ({{phoneData.carrierSelected}}) {{phoneData.GBSelected}} GB</strong></span>
+                    </li>
+                    <li>
+                        <span>CONDITION:</span>
+                        <span><strong>Very Good</strong></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="phonedet-text" flex-xs="100" flex-sm="40" flex="30">
+                <div class="process-link">
+                    <div class="offerleft">
+                        <img src="/Content/Global/Img/iphone-img1.png" alt="" />
+                    </div>
+                    <div class="offerright">
+                        <p>GREENTRADE OFFER</p>
+                        <h2>${{phoneData.offer}}</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Brand Box -->
+</div>

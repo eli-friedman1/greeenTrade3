@@ -622,7 +622,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.social-media ul { margin: 0; padding: 0;}
 	.social-media li {padding: 0 5px; float: left; list-style: none;}
 	.social-media li a { border: 3px solid #76cc9d; width: 30px; height: 30px; border-radius: 50%; display: block;}
-	.centering { display: flex; margin: 0 13vw;}
+	.centering {  display: flex; margin: 0 13vw;}
 	.bottom-text {margin: 50px auto 0 ; width: 80%; overflow: hidden}
 	.bottom-text .instagram {padding: 50px 0;margin-right: 1%; background: #fafafa;text-align: center;}
 	.bottom-text .instagram img { max-width: 100%; height: auto;}
@@ -689,9 +689,9 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.footer-top p { margin: 0; font-size: 30px; color:#50d691; font-family: 'Camphor'; font-weight: 600;}
 	
 	/* brand-box */
-	.brand-box { padding: 30px; background: #fafafa; width: 100%; overflow: hidden;   border-bottom: 1px solid #474f59;}
+	.brand-box { padding: 30px; background: #fafafa; width: 100%; overflow: hidden;   border-bottom: 1px solid #474f59; max-width: 930px}
 	.brand-box .brand-title h3 { margin-top: 0; font-size: 20px; color:#474f59; font-family: 'Camphor'; font-weight: 400;}
-	.brand-box  img { max-width: 100%; height: auto;}
+	.brand-box  img { max-width: 100%; height: 102px;;}
 	.brand-box .brand-list .instagram { margin-right: 8%;}
 	.brand-box .brand-list .instagram:last-child{ margin: 0;}
 	.brand-box .brand-list .instagram  span{ padding-top: 10px; font-size: 20px; color:#7d858f; font-family: 'Camphor'; font-weight: 600; display: block;}
@@ -733,7 +733,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.brand-box.phonedetails-box .phonedet-text  ul li span strong { font-size: 20px; color: #50d691;}
 	.brand-box.phonedetails-box .phonedet-text .process-link a {font-size: 18px; color: #fff; background:#50d691; padding: 8px 30px; border-radius: 20px; display: inline-block; text-decoration: none; font-family: 'Camphor'; font-weight: 600; transition: all ease-in-out .5s; }
 	.brand-box.phonedetails-box .phonedet-text .process-link a:hover { background: #474f59;} 
-	.brand-box.phonedetails-box { border-bottom: none;}
+	.brand-box.phonedetails-box { border-bottom: none; max-height: 147px;}
 	
 	/* Offer Pages */
 	.process-link .offerleft { float: left; width: 25%;}
@@ -743,16 +743,17 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.pickuptime-box { margin: 30px 0 50px; border-bottom: none;}
 	.signin-details h4{ margin: 15px 0; color: #474f59; font-size: 18px; font-family: 'Camphor'; font-weight: 600;}
 	.signin-details a { margin: 10px 0; color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 300; text-decoration: none;}
-	.signin-details input[type="text"]{margin: 0 0 5px; border: 1px solid #8c939c; padding: 10px; width: 93%;  color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 300;}
-	.signin-details input[type="password"]{margin: 0 0 5px; border: 1px solid #8c939c; padding: 10px; width: 93%;  color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 300;}
-	.signin-details  .signin-text form{ width: 70%; position: relative;}
-	.signin-details  .signin-text form:after { content: ""; width: 1px; height:88px; background: #474f59; position: absolute; top: 0; right: -67px;}
-	.signin-details  .signin-text  .form-group { width: 100%; overflow: hidden;}
+	.signin-details input[type="text"]{ height: 48px; border-radius: 0; margin: 0 0 5px; border: 1px solid #8c939c; padding: 10px; width: 93%;  color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 300;}
+	.signin-details input[type="password"]{ height: 48px; border-radius: 0; margin: 0 0 5px; border: 1px solid #8c939c; padding: 10px; width: 93%;  color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 300;}
+	.signin-details  .signin-text .form{ width: 70%; position: relative;}
+	.signin-details  .signin-text .form:after { content: ""; width: 1px; height:88px; background: #474f59; position: absolute; top: 0; right: -67px;}
+    .signin-details  .signin-text .form .login-form-inputs { height: 110px }
+	.signin-details  .signin-text  .form-group-nonbs { width: 100%; overflow: hidden;}
 	.signin-details  .signin-text .forget { float: right;}
 	.signin-details  .signin-text .keep-in { float: left;}
 	.signin-details  .signin-text .btn { margin: 20px 0 10px; padding: 6px 35px; color: #fff; font-size: 18px; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: block; border-radius: 20px; border: 2px solid #50d691; transition: all ease-in-out .5s;}
 	.signin-details  .signin-text .btn:hover { color: #50d691; background: #fff;} 
-	.signin-details  .account-link .btn { margin: 20px 0 10px; padding: 6px 35px; color: #fff; font-size: 18px; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: inline-block; border-radius: 20px; border: 0;transition: all ease-in-out .5s; border: 2px solid #50d691;}
+	.signin-details  .account-link .btn { margin: 68px 0 10px; padding: 6px 35px; color: #fff; font-size: 18px; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: inline-block; border-radius: 20px; border: 0;transition: all ease-in-out .5s; border: 2px solid #50d691;}
 	.signin-details  .account-link .btn:hover { color: #50d691; background: #fff;} 
 	.signin-details .account-link { margin: 50px 0 0;}
 	
@@ -782,7 +783,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	
 	/* account Page */
 	.account-box { width: 100%;}
-	.account-box .marketplace  .form-group { overflow: hidden; width: 100%;}
+	.account-box .marketplace  .form-group-nonbs { overflow: hidden; width: 100%;}
 	.account-box .marketplace  { padding: 30px 0px; width: 100%;}
 	.account-box h2 { padding-left: 50px; margin: 10px 0px 30px 0px; font-size: 26px; color: #50d691; font-family: 'Camphor'; font-weight: 600;}
 	.account-box .account-details{padding: 30px 50px;background: #fafafa;width: 100%;}
@@ -868,9 +869,10 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.menuBox ul li a { padding: 5px 5px;}
 	/*.header-top {padding: 18px 0 0;}*/
 	.signin-details input[type="text"] ,.signin-details input[type="password"]{ width: 93%;}
-	.signin-details .signin-text form { width: 100%;}
-	.signin-details .signin-text form::after { display: none;}
-	.signin-details .signin-text .form-group { overflow: visible; clear: both;}
+    .signin-details  .account-link .btn { margin: 20px 0 10px; }
+	.signin-details .signin-text .form { width: 100%;}
+	.signin-details .signin-text .form::after { display: none;}
+	.signin-details .signin-text .form-group-nonbs { overflow: visible; clear: both;}
 	.pickup-box .available-time a {padding: 12px; font-size: 16px; }
 	.account-box .account-details{padding: 30px 20px;}
 	.account-box .account-details .acc-left{width: 49.5%;}
