@@ -25,6 +25,13 @@ li {
     padding-bottom: 2vw;
 }
 
+.state-button-container{
+        display:flex;
+}
+
+.state-button { width:20%  }
+.state-button .img-or-text { width: 75%; display:inline; }
+
 .state-text {
     padding: 2vw 2.5vw;
     font-family: defaultLightFont;
@@ -44,21 +51,28 @@ li {
 
 .series-button-container{
     /*margin-bottom: 2vw;*/
-    display: inline-block;
+    /*display: flex;*/
+    padding: 0 1.7vw;
+        display: inline-block;
+        overflow: hidden;
+    width: 100%;
 }
+
+.series-btn-div{ width:25%; float: left; }
 
 .series-button {
     line-height: 20px;
     min-height: 20px;
-    margin: .2vw .6vw;
+    margin: .2vw .3vw;
     display:inline-block;
 }
 
 .series-button-text {
-    padding: .1vw 2vw;
+    padding: .1vw .3vw;
     font-family: defaultLightFont;
     font-size: 17px;
     text-transform:none;
+        float: left;
 }
 
 .feature-item-container{
@@ -83,7 +97,8 @@ hr {
 }
 
 .selected-time-slot {
-    color: #64be8a !important; 
+    /*color: #64be8a !important;*/ 
+    color: #fff !important; background: #50d691; 
 }
 
 @media (max-width: 768px) {

@@ -397,6 +397,7 @@ namespace greentrade2.Controllers
         {
             bool success = true;
             string errors = "";
+            string firstName = null;
             var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = email, Email = email, FirstName = fName, LastName = lName };
@@ -449,7 +450,8 @@ namespace greentrade2.Controllers
                         }
                     }
                 }
-                
+                firstName = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindByEmail(email)?.FirstName;
+
             }
             else
             {
@@ -457,7 +459,7 @@ namespace greentrade2.Controllers
                 success = false;
             }
 
-            return Json(new { success });
+            return Json(new { success, firstName });
         }
 
         // [HttpPost]
@@ -471,10 +473,14 @@ namespace greentrade2.Controllers
             var result = signinManager.PasswordSignIn(email, pw, rememberMe, shouldLockout: false);
             bool success = false;
 
+            string firstName = null;
+
+
             switch (result)
             {
                 case SignInStatus.Success:
-                    Session.Timeout = 1;
+                    //  Session.Timeout = 1;
+                    firstName = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindByEmail(email)?.FirstName;
                     success = true;
                     break;
                 case SignInStatus.LockedOut:
@@ -493,7 +499,7 @@ namespace greentrade2.Controllers
                     break;
             }
 
-            return Json(new { success });
+            return Json(new { success, firstName });
         }
 
         //
@@ -551,7 +557,7 @@ namespace greentrade2.Controllers
                 //
                 // The following code shows how you can use an SqlCommand based on the SqlConnection.
                 //
-                using (SqlCommand cmd = new SqlCommand(@"SELECT [PhoneID], [AddressID], [TimeSlotSelected], [SubmissionTime], [Status] ,[PaymentPreference] ,[PaymentEmail] 
+                using (SqlCommand cmd = new SqlCommand(@"SELECT [PhoneID], [AddressID], [TimeSlotSelected], [SubmissionTime], [Status] ,[PaymentPreference] ,[PaymentEmail], [PriceOffered] 
                                                             from PhoneSubmissions
                                                             where [UserID] = @userId", con))
                 {
@@ -562,11 +568,13 @@ namespace greentrade2.Controllers
                         {
                             var trade = new AccountItems()
                             {
+                                contactEmail = user.Email,
                                 phoneId = reader.GetInt32(0),
                                 addressId = reader.GetInt32(1),
                                 timeSlot = reader.GetDateTime(2).ToString(),
                                 submissionTime = reader.GetDateTime(3).ToString(),
-                                status = reader.GetInt32(4) == 0 ? "WAITING FOR PICKUP" : (reader.GetInt32(4) == 1 ? "PAYMENT COMPLETED" : "CANCELED")
+                                status = reader.GetInt32(4) == 0 ? "WAITING FOR PICKUP" : (reader.GetInt32(4) == 1 ? "PAYMENT COMPLETED" : "CANCELED"),
+                                priceOffered = reader.GetDecimal(7)
                             };
                             trades.Add(trade);                            
                         }
@@ -593,7 +601,7 @@ namespace greentrade2.Controllers
                             }
                         }
                     }
-                    using (SqlCommand cmd = new SqlCommand(@"SELECT Top 1 Address1, Address2, City, State, Zip 
+                    using (SqlCommand cmd = new SqlCommand(@"SELECT Top 1 Address1, Address2, City, State, Zip, PhoneNumber
                                                             from Addresses 
                                                             where AddressID = @addressId", con))
                     {
@@ -607,6 +615,7 @@ namespace greentrade2.Controllers
                                 trade.city = reader.GetString(2);
                                 trade.state = reader.GetString(3);
                                 trade.zip = reader.GetString(4);
+                                trade.phoneNumber = reader.GetString(5);
                             }
                         }
                     }

@@ -1,4 +1,4 @@
-﻿<div class="sub-nav-page-title" layout="row" layout-align="center center">
+﻿<!--<div class="sub-nav-page-title" layout="row" layout-align="center center">
     MY ACCOUNT SUMMARY
 </div>
 <div>
@@ -11,4 +11,120 @@
     <div ng-if="clicked[$index] == true">
         {{trade.timeSlot}} {{trade.brand}} {{trade.series}} {{trade.carrier}} {{trade.color}} {{trade.GB}} {{trade.address1}} {{trade.city}} {{trade.state}}
     </div>
+</div>-->
+
+<!-- Start accountsummary-box -->
+<div class="accountsummary-box">
+    <div class="innerpage-title">
+        <h1>MY ACCOUNT SUMMARY</h1>
+    </div>
+    <div class="centering">
+        <div class="summary" layout="row" layout-xs="column">
+            <div class="summary-title">
+                <h2>Recent GreenTrades:</h2>
+            </div>
+        </div>
+    </div>
+    <div class="centering">
+        <div class="summary-details" layout="row" layout-xs="column">
+            <div class="account-list" flex>
+                <div class="account-text">
+                    <div class="acctitile">
+                        <span>DEVICE:</span>
+                    </div>
+                    <div class="acctitile">
+                        <span>CREATED:</span>
+                    </div>
+                    <div class="acctitile">
+                        <span>STATUS:</span>
+                    </div>
+                </div>
+                <div ng-repeat="trade in trades" class="account-text" ng-click="tradeClicked($index)">
+                    <div class="acclist">
+                        <span>{{trade.brand}}</span>
+                    </div>
+                    <div class="acclist">
+                        <span>{{trade.submissionTime}}</span>
+                    </div>
+                    <div class="acclist">
+                        <span>{{trade.status}}</span>
+                    </div>
+                    <div ng-if="clicked[$index] == true" class="account-text-inner  mysummary-details">
+                        <ul>
+                            <li>
+                                <div class="leftside">
+                                    <div class="summarytext">
+                                        <span>CREATED:</span>
+                                        <p><strong>{{trade.timeSlot}}</strong></p>
+                                    </div>
+                                    <div class="summarytext">
+                                        <span>WHAT'S INSIDE:</span>
+                                        <p><strong>{{trade.brand}} {{trade.series}} ({{trade.carrier}}) {{trade.color}} {{trade.GB}}</strong></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="leftside">
+                                    <div class="summarytext">
+                                        <span>TRADE VALUE:</span>
+                                        <p><strong>${{trade.priceOffered}}</strong></p>
+                                    </div>
+                                    <div class="summarytext">
+                                        <span>STATUS:</span>
+                                        <p><strong>{{trade.status}}</strong></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="leftside">
+                                    <div class="summarytext">
+                                        <span>CONTACT EMAIL:</span>
+                                        <p><strong>{{trade.contactEmail}}</strong></p>
+                                    </div>
+                                    <div class="summarytext">
+                                        <span>CONTACT PHONE:</span>
+                                        <p><strong>{{trade.phoneNumber}}</strong></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="leftside">
+                                    <div class="summarytext">
+                                        <span>SHIP/PICK UP ADDRESS:</span>
+                                        <p><strong>****need to get name**<br />{{trade.address1}}<br />{{trade.city}}, {{trade.state}} {{trade.zip}}</strong></p>
+                                    </div>
+                                    <div class="summarytext">
+                                        <span>PAYMENT PREFERENCE:</span>
+                                        <p><strong>****need to get***</strong></p>
+                                    </div>
+                                    <div class="summarytext">
+                                        <span>PAYMENT EMAIL</span>
+                                        <p><strong>***need to get**</strong></p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="account-text active">
+                    <div class="acclist">
+                        <span>IPHONE</span>
+                    </div>
+                    <div class="acclist">
+                        <span>04/12/2017</span>
+                    </div>
+                    <div class="acclist">
+                        <span>PAYMENT COMPLETED</span>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
 </div>
+<!-- End accountsummary-box -->
+<!-- End footer-top -->
+<div class="footer-top">
+    <p>GreenTrade is currently available in Southern California.</p>
+</div>
+<!-- End footer-top -->

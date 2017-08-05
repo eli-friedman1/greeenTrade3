@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" Inherits="System.Web.Mvc.ViewPage" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+<%@ Import Namespace="Microsoft.AspNet.Identity.Owin" %>
     <%--MasterPageFile="~/Site1.Master"--%>
 
 <%--<asp:Content ID="homeHead" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -25,6 +25,10 @@
         offer : <%= Session["offer"] != null ? Session["offer"] : "null" %>
     };
     loggedIn = <%= HttpContext.Current.User.Identity.IsAuthenticated ? "true" : "false" %>;
+    firstNameFromSession = null;
+    if(loggedIn){
+        firstNameFromSession = "<%= HttpContext.Current.GetOwinContext().GetUserManager<greentrade2.ApplicationUserManager>().FindById(HttpContext.Current.User.Identity.GetUserId())?.FirstName %>"
+    }
     function sendEmail() {
         $.ajax({
             type: "POST",

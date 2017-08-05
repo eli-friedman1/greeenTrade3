@@ -96,6 +96,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
 
 myApp.controller('phoneAppController', ['$scope', '$window', 'phoneService', function ($scope, $window, phoneService) {
     phoneService.loggedIn.value = $window.loggedIn;
+    phoneService.firstName = $window.firstNameFromSession;
   //  vm = this;
    // $scope.brand = 'ff';
     //vm.series;

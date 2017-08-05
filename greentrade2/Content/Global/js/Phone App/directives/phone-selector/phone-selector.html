@@ -1,34 +1,45 @@
-﻿<div class="sub-nav-page-title" layout="row" layout-align="center center">
+﻿<!--<div class="sub-nav-page-title" layout="row" layout-align="center center">
     START YOUR GREENTRADE
+</div>-->
+<div class="innerpage-title">
+    <h1>START YOUR GREENTRADE</h1>
 </div>
 <div class="phone-select-container" layout="column" layout-align="center center">
     <div class="state-select-container">
         <div class="state-text">Select your cell phone <span style="font-weight:bold;">brand</span>:</div>
         <div class="state-button-container" layout="row" layout-align="space-around center">
-            <md-button class="state-button" ng-repeat="(brand, data) in phoneBrands" ng-click="selectBrand(brand)"> 
-                <svg class="state-image" role="img" title="iphone">
+            <md-button ng-repeat="(brand, data) in phoneBrands" ng-click="selectBrand(brand)" class="state-button"> 
+                <!--<svg class="state-image" role="img" title="iphone">
                     <use xlink:href="{{data.imageUrl}}" />
-                </svg>
+                </svg>-->
+                <img ng-if="data.imageUrl && brand != 'other'" ng-src="{{data.imageUrl}}" class="img-or-text" />
+                <div ng-if="brand == 'other'" class="img-or-text">Other Brand</div>
             </md-button>
         </div>
     </div>
     <div ng-if="phoneData.brandSelected.length > 0" class="state-select-container">
         <div class="state-text">Select your <span style="font-weight:bold;">{{phoneData.brandSelected}}</span> series:</div>
         <div class="series-button-container" layout="column" layout-align="space-around start">
-            <md-button class="series-button" ng-repeat="series in phoneBrands[phoneData.brandSelected].series" ng-click="selectSeries(series)">
-                <div class="series-button-text">
-                    {{series}}
-                </div>
-            </md-button>
+            <div ng-repeat="series in phoneBrands[phoneData.brandSelected].series" ng-click="selectSeries(series)" class="series-btn-div">
+                <md-button class="series-button" >
+                    <div class="series-button-text">
+                        {{series}}
+                    </div>
+                </md-button>
+            </div>
         </div>
     </div>
     <div ng-if="phoneData.seriesSelected.length > 0" class="state-select-container">
         <div class="state-text">Select your <span style="font-weight:bold;">{{phoneData.brandSelected}} {{phoneData.seriesSelected}}</span> carrier:</div>
         <div class="state-button-container" layout="row" layout-align="space-around center">
-            <md-button class="state-button" ng-repeat="carrier in carriers" ng-click="selectCarrier(carrier[0])">
+            <!--<md-button class="state-button" ng-repeat="carrier in carriers" ng-click="selectCarrier(carrier[0])">
                 <svg class="state-image" role="img" title="iphone">
                     <use xlink:href="{{carrier[1]}}" />
                 </svg>
+            </md-button>-->
+            <md-button ng-repeat="carrier in carriers" ng-click="selectCarrier(carrier[0])" class="state-button">
+                <img ng-src="{{carrier[1]}}" class="img-or-text" />
+                <!--<div ng-if="brand == 'other'" class="img-or-text">Other Brand</div>-->
             </md-button>
         </div>
     </div>

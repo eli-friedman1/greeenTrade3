@@ -4,6 +4,7 @@
     $scope.fName;
     $scope.lName;
     $scope.registerSubmit = registerSubmit;
+    $scope.phoneData = phoneService.getPhoneData();
     function registerSubmit() {
         $.ajax({
             type: "POST",
@@ -12,10 +13,19 @@
         })
         .then(
             function (data) {
-                window.location = ("/PhoneSelection#!/selectPickup");
-                $timeout(function () {
-                    window.location.reload();
-                }, 500);
+                phoneService.loggedIn.value = true;
+                phoneService.firstName = data.firstName;
+                if ($scope.phoneData.offer == null) {
+                    window.location = ("/#!/phoneselection");
+                    //  window.location.reload();
+                } else {
+                    window.location = ("/#!/selectpickup");
+                    //  window.location.reload();
+                }
+                //window.location = ("/#!/selectpickup");
+                //$timeout(function () {
+                //    window.location.reload();
+                //}, 500);
                 
 
             }

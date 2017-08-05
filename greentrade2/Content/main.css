@@ -691,7 +691,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	/* brand-box */
 	.brand-box { padding: 30px; background: #fafafa; width: 100%; overflow: hidden;   border-bottom: 1px solid #474f59; max-width: 930px}
 	.brand-box .brand-title h3 { margin-top: 0; font-size: 20px; color:#474f59; font-family: 'Camphor'; font-weight: 400;}
-	.brand-box  img { max-width: 100%; height: 102px;;}
+	.brand-box  img { max-width: 100%; height: 102px;}
 	.brand-box .brand-list .instagram { margin-right: 8%;}
 	.brand-box .brand-list .instagram:last-child{ margin: 0;}
 	.brand-box .brand-list .instagram  span{ padding-top: 10px; font-size: 20px; color:#7d858f; font-family: 'Camphor'; font-weight: 600; display: block;}
@@ -727,13 +727,14 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.iphone-features-list  .condition-text p {color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 400;}
 	.iphone-features-list  .condition-text ul{ margin: 0;  padding: 0 0 0 15px;}
 	.iphone-features-list  .condition-text li {color: #474f59; font-size: 15px; font-family: 'Camphor'; font-weight: 300;}
+    .brand-box.phonedetails-box .phonedet-text { max-height: 102px }
 	.brand-box.phonedetails-box   .brand-title h3 { font-size: 18px;}
 	.brand-box.phonedetails-box  ul { list-style: none; margin: 0; padding: 0;}
 	.brand-box.phonedetails-box .phonedet-text  ul li span { margin-right: 10px;color: #474f59; font-size: 16px; font-family: 'Camphor'; font-weight: 600;}
 	.brand-box.phonedetails-box .phonedet-text  ul li span strong { font-size: 20px; color: #50d691;}
 	.brand-box.phonedetails-box .phonedet-text .process-link a {font-size: 18px; color: #fff; background:#50d691; padding: 8px 30px; border-radius: 20px; display: inline-block; text-decoration: none; font-family: 'Camphor'; font-weight: 600; transition: all ease-in-out .5s; }
 	.brand-box.phonedetails-box .phonedet-text .process-link a:hover { background: #474f59;} 
-	.brand-box.phonedetails-box { border-bottom: none; max-height: 147px;}
+	.brand-box.phonedetails-box { border-bottom: none; }
 	
 	/* Offer Pages */
 	.process-link .offerleft { float: left; width: 25%;}
@@ -763,11 +764,14 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.pickup-box  .available-time h4 { margin: 15px 0; color: #474f59; font-size: 18px; font-family: 'Camphor'; font-weight: 600; text-align: center;}
 	.pickup-box  .available-time ul { list-style: none; padding: 0; width: 90%; margin: 0 auto;}
 	.pickup-box  .available-time ul li { margin: 0 0 15px;}
-	.pickup-box  .available-time a { padding: 12px 15px; color: #474f59; font-size: 18px; font-family: 'Camphor'; font-weight: 300; text-decoration: none; display: block; text-align: center;  border: 1px solid #50d691; border-radius: 12px;transition: all ease-in-out .5s; }
-	.pickup-box  .available-time a:hover {color: #fff; background: #50d691; }
-	
+	.pickup-box  .available-time .time-button { cursor: pointer; padding: 12px 15px; color: #474f59; font-size: 18px; font-family: 'Camphor'; font-weight: 300; text-decoration: none; display: block; text-align: center;  border: 1px solid #50d691; border-radius: 12px;transition: all ease-in-out .5s; }
+	.pickup-box  .available-time .time-button:hover {color: #fff; background: #50d691; }
+    .pickup-box  .available-time .time-button-outerdiv:focus { outline: none; border: 0; }
+    .pickup-box .confirm-btn { float: right; margin: 68px 0 10px; padding: 0px 30px; color: #fff; font-size: 18px; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: inline-block; border-radius: 20px; border: 0;transition: all ease-in-out .5s; border: 2px solid #50d691;}
+	.pickup-box .confirm-btn:hover { color: #50d691; background: #fff;} 
+
 	/* phone Page */
-	.phone-box .marketplace  {margin: 30px 0 0; padding: 50px 30px 30px 30px;background: #fafafa;}
+	.phonedet-textbox .marketplace  {margin: 30px 0 0; padding: 50px 30px 30px 30px;background: #fafafa;}
 	.phone-box h2 { margin: 10px 0px 30px 0px; font-size: 26px; color: #50d691; font-family: 'Camphor'; font-weight: 600;}
 	.phone-box p { margin: 0px 0px 25px 0px; color: #474f59; font-size: 18px; font-family: 'Camphor'; font-weight: 300;line-height: 26px;}
 	.phone-box .marketplace .prepaid{ margin-top: 40px; background: #50d691; float: right; color: #fff;font-size: 15px; font-family: 'Camphor'; font-weight: 700; display: block; padding: 7px 10px; border-radius: 15px; text-decoration: none;border: 1px solid #fff; transition: all 0.5s;}
@@ -793,13 +797,14 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.account-box .account-details input[type="text"]{width: 100%; padding: 15px; height: 50px; border: 1px solid #7d858f; text-transform: upperCase; font-size: 13px; color: #7d858f;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
 	.account-box .account-details .acc-line .grp1{width: 32.8%;float: left;margin-right: 6px; margin-top: 5px; margin-bottom: 5px;}
 	.account-box .account-details .acc-line .grp1.spc{ margin-right: 0px;}
-	.account-box .account-details input[type="submit"]{ margin-top: 40px; background: #50d691; float: right; color: #fff;font-size: 15px; font-family: 'Camphor'; font-weight: 700; display: block; padding:9px 33px; border-radius: 17px; text-decoration: none;border: 1px solid #fff; transition: all 0.5s;}
-	.account-box .account-details input[type="submit"]:hover{ background: #fff; border: 1px solid #50d691; color: #50d691;transition: all 0.5s;}
+	.account-box .account-details .submit-btn{ margin-top: 40px; background: #50d691; float: right; color: #fff;font-size: 15px; font-family: 'Camphor'; font-weight: 700; display: block; padding:9px 33px; border-radius: 17px; text-decoration: none;border: 1px solid #fff; transition: all 0.5s;}
+	.account-box .account-details .submit-btn:hover{ background: #fff; border: 1px solid #50d691; color: #50d691;transition: all 0.5s;}
 	
 	/* accountsummary-box */
 	.accountsummary-box .summary h2 { padding-left: 50px; margin: 20px 0 30px; font-size: 26px; color: #50d691; font-family: 'Camphor'; font-weight: 600;}
-	.accountsummary-box .summary-details   {width: 100%; overflow: hidden;}
-	.accountsummary-box .summary-details .account-text { margin: 0 0 15px; padding: 12px 0 12px 50px;  width: 100%; background: #fafafa; overflow: hidden;}
+	.accountsummary-box .summary-details   { min-height:60vh; width: 100%; overflow: hidden;}
+	.accountsummary-box .summary-details .account-text { margin: 0 0 3px; padding: 12px 0 12px 50px;  width: 100%; background: #fafafa; overflow: hidden;}
+    .accountsummary-box .summary-details .account-text-inner {overflow: hidden;}
 	.accountsummary-box .summary-details .account-text  .acctitile { float: left; width: 33%;}
 	.accountsummary-box .summary-details .account-text  .acclist { float: left; width: 33%;}
 	.accountsummary-box .summary-details .account-text  .acctitile span { color: #474f59; font-size: 17px; font-family: 'Camphor'; font-weight: 300;}
@@ -809,9 +814,9 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.accountsummary-box .summary-details .account-text.active span { color: #50d691;}
 	
 	/* mysummary-details */
-	.mysummary-details {padding: 30px 50px;background: #fafafa;width: 100%;}
+	.mysummary-details {padding: 30px 0px 0px;background: #fafafa;width: 100%;}
 	.mysummary-details ul { list-style: none; padding: 0; margin: 0;}
-	.account-text.mysummary-details li {overflow: hidden; width: 100%;}
+	.account-text-inner.mysummary-details li {overflow: hidden; width: 100%;}
 	.mysummary-details .summarytext { float: left; width: 33%;}
 	.mysummary-details span {color: #474f59; font-size: 17px; font-family: 'Camphor'; font-weight: 300; display: block;}
 	.mysummary-details p {  margin: 5px 0 25px; color: #474f59; font-size: 17px; font-family: 'Camphor'; font-weight: 600; display: block;}

@@ -1,8 +1,14 @@
-﻿<div class="sub-nav-page-title" layout="row" layout-align="center center">
+﻿<!--<div class="sub-nav-page-title" layout="row" layout-align="center center">
     PLEASE SELECT A PICK UP TIME
+</div>-->
+<div class="innerpage-title">
+    <h1>PLEASE SELECT A PICK UP TIME</h1>
 </div>
+
 <offer></offer>
-<div>Congratulations! You are now steps away from booking
+
+
+<!--<div>Congratulations! You are now steps away from booking
 
 your phones very first chauffeur!</div>
 <div>
@@ -22,4 +28,39 @@ your phones very first chauffeur!</div>
 
 <md-button ng-click="submitPickUpTime()">
     confirm pickup time
-</md-button>
+</md-button>-->
+
+<div class="pickup-box">
+    <div class="centering" layout="row" layout-align="center start">
+        <!-- Start Brand Box -->
+        <div class="brand-box pickup-time">
+            <div class="brand-title">
+                <h2>Congratulations, {{firstName}}! You are now steps away from booking your phones very first chauffeur!</h2>
+                <h3>Please select from the available time slots to have a friendly GreenTrade driver pick up your phone.</h3>
+            </div>
+
+            <div class="available-time" layout="row" layout-xs="column">
+                <div ng-repeat="day in days" class="available-text" flex>
+                    <h4>{{day.dayOfWeek}}</h4>
+                    <ul>
+                        <li ng-repeat="time in day.openTimeSlots" ng-click="selectTime(time, $parent.$index, $index)" class="time-button-outerdiv">
+                            <div class="time-button" ng-class="{ 'selected-time-slot': $parent.$index == selectedParentIndex && $index == selectedChildIndex }">
+                                {{time}}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <md-button ng-click="submitPickUpTime()" class="confirm-btn">
+                confirm pickup time
+            </md-button>
+        </div>
+        <!-- End Brand Box -->
+    </div>
+</div>
+<!-- Start footer-top -->
+<div class="footer-top">
+    <p>Green Trade is currently available in Southern California.</p>
+</div>
+<!-- End footer-top -->
+

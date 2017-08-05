@@ -1,4 +1,4 @@
-﻿<md-input-container class="">
+﻿<!--<md-input-container class="">
     <input type="text" ng-model="fName" placeholder="FIRST NAME">
 </md-input-container>
 <md-input-container class="">
@@ -27,4 +27,76 @@
 </md-input-container>
 <md-button ng-click="registerSubmit()">
     sign up
-</md-button>
+</md-button>-->
+
+
+<!-- Start account-box -->
+<div class="account-box">
+    <div class="innerpage-title">
+        <h1>JOIN GREENTRADE</h1>
+    </div>
+    <div class="centering">
+        <div class="marketplace">
+            <div class="brand-title">
+                <h2>Create a New Account</h2>
+            </div>
+            <form>
+                <div class="account-details" layout="row" layout-xs="column">
+                    <div class="acc-line">
+                        <div class="form-group">
+                            <div class="acc-left">
+                                <input ng-model="fName" type="text" placeholder="FIRST NAME" required />
+                            </div>
+                            <div class="acc-left spc">
+                                <input ng-model="lName" type="text" placeholder="LAST NAME" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="acc-line">
+                                <input ng-model="address" type="text" placeholder="HOME ADDRESS" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="grp1">
+                                <input ng-model="city" type="text" placeholder="CITY" required />
+                            </div>
+                            <div class="grp1">
+                                <input ng-model="state" type="text" placeholder="STATE" required />
+                            </div>
+                            <div class="grp1 spc">
+                                <input ng-model="zip" type="text" placeholder="ZIP" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="acc-left">
+                                <input ng-model="phone" type="text" placeholder="PHONE" required />
+                            </div>
+                            <div class="acc-left spc">
+                                <input ng-model="email" type="text" placeholder="EMAIL" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="acc-line">
+                                <input ng-model="pw" type="text" placeholder="SET PASSWORD" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="acc-line">
+                                <div ng-click="registerSubmit()" class="submit-btn" >
+                                    Sign Up
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- End account-box -->
+<!-- End footer-top -->
+<div class="footer-top">
+    <p>GreenTrade is currently available in Southern California.</p>
+</div>
+<!-- End footer-top -->

@@ -5,26 +5,28 @@
 
     $scope.phoneData = phoneService.getPhoneData();
 
+
+    //'/Content/Global/Img/sprite.svg#sprint'
     $scope.phoneBrands = {
         'iphone': {
             series: ['series1', 'series2', 'sdfdsfdsfdsdfssdf', 'dsfdsfdsdfssdfs', 'fdsfdsdfssdfss', 'sfdsfdsdfssdfsdf', 'fdsfdsdfssdfsyj', 'dsfdsfdsdfssdfsert', 'sfdsdfssdfsewe', 'sfdsdfssdfsyugyh'],
-            imageUrl: "/Content/Global/Img/sprite.svg#iphone"
+            imageUrl: "/Content/Global/Img/iphine-icon.png"
         },
         'android': {
             series: ['series1', 'series2'],
-            imageUrl: "/Content/Global/Img/sprite.svg#android"
+            imageUrl: "/Content/Global/Img/android.png"
         },
         'samsung': {
             series: ['series1', 'series2'],
-            imageUrl: "/Content/Global/Img/sprite.svg#iphone"
+            imageUrl: "/Content/Global/Img/samsung.png"
         },
         'htc': {
             series: ['series1', 'series2'],
-            imageUrl: "/Content/Global/Img/sprite.svg#iphone"
+            imageUrl: "/Content/Global/Img/htc.png"
         },
         'other': {
             series: ['series1', 'series2'],
-            imageUrl: "/Content/Global/Img/sprite.svg#iphone"
+            imageUrl: null
         }
     };
 
@@ -46,8 +48,11 @@
     }
 
     $scope.carriers = [
-        ['sprint', '/Content/Global/Img/sprite.svg#sprint'],
-        ['att', '/Content/Global/Img/sprite.svg#att']
+        ['att', '/Content/Global/Img/at.png'],
+        ['sprint', '/Content/Global/Img/sprint.png'],
+        ['t-mobile', '/Content/Global/Img/t-mobile.png'],
+        ['verizon', '/Content/Global/Img/verizon.png'],
+        ['unlocked', '/Content/Global/Img/unlock.png']
     ];
 
     $scope.selectCarrier = selectCarrier;

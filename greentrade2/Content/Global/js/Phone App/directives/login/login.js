@@ -39,6 +39,7 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
         .then(
             function (data) {
                 phoneService.loggedIn.value = true;
+                phoneService.firstName = data.firstName;
                 if ($scope.phoneData.offer == null) {
                     window.location = ("/#!/phoneselection");
                   //  window.location.reload();

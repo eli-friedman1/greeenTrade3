@@ -1,15 +1,38 @@
-﻿<div>
+﻿<!--<div>
     Confirmation
 </div>
 <div>
-    Thanks Yoel, you’re booked! Looking forward to picking up your phone on:
+    Thanks {{firstName}}, you’re booked! Looking forward to picking up your phone on:
     {{timeSlot.day}}, {{timeSlot.month}} {{timeSlot.date}}, {{timeSlot.year}} between {{timeSlot.timeStart}} and {{timeSlot.timeEnd}}
     <br /> 
     from {{address.address1}} {{addrss.address2}}, {{address.city}} {{address.state}} {{address.zip}}.
 </div>
 <div>
     <span ng-click="editTime()">edit time</span>&nbsp;<span ng-click="editAddress = !editAddress">edit address</span>
+</div>-->
+
+<!-- Start confirmation-box -->
+<div class="confirmation-box">
+    <div class="innerpage-title">
+        <h1>DRIVER CONFIRMATION</h1>
+    </div>
+    <div class="centering">
+        <div class="marketplace" layout="column" layout-xs="column">
+            <div flex>
+                <h2>Confirmation</h2>
+                <p>Thanks {{firstName}}, you’re booked! Looking forward to picking up your phone on:
+                <br /><strong>{{timeSlot.day}}, {{timeSlot.month}} {{timeSlot.date}}, {{timeSlot.year}} <em>between</em> {{timeSlot.timeStart}} <em>and</em> {{timeSlot.timeEnd}}
+                <br /><em>from</em> {{address.address1 + (address.address2 ? " " + address.address2 : "")}}, {{address.city}} {{address.state}} {{address.zip}}.</strong>
+                <p>Please make sure someone will be home otherwise we'll need to reschedule.</p>
+            </div>
+            <div>
+                <span ng-click="editTime()">edit time</span>&nbsp;<span ng-click="editAddress = !editAddress">edit address</span>
+            </div>
+        </div>
+        
+    </div>
 </div>
+
 
 <div ng-show="editAddress">
     <md-input-container class="">

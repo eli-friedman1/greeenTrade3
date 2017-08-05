@@ -43,12 +43,14 @@ myApp.controller('selectPickup', ['$scope', '$timeout', 'phoneService', '$window
         //  $scope.updateTitleInner({ subTitle: 'PLEASE SELECT A PICK UP TIME' });
     });
 
-
     $scope.phoneData = phoneService.getPhoneData();
     if ($scope.phoneData.offer == null) {
         window.location = ("/#!/phoneselection");
+    } else if (!phoneService.loggedIn.value) {
+        window.location = ("/#!/phoneselection");
     }
-    //TODO if not logged in send to login page
+    
+    $scope.firstName = phoneService.firstName;
 
     var today = new Date();
     var hours = ['6:00-7:00 PM', '7:00-8:00 PM', '8:00-9:00 PM', '9:00-10:00 PM'];
@@ -101,8 +103,8 @@ myApp.controller('selectPickup', ['$scope', '$timeout', 'phoneService', '$window
             month: monthNames[selectedDate.getMonth()],
             date: selectedDate.getDate(),
             year: selectedDate.getFullYear(),
-            timeStart: ((selectedDate.getHours() % 12) || 12) + ':00' + (selectedDate.getHours() < 11 ? ' AM' : ' PM'),
-            timeEnd: (((selectedDate.getHours() + 1) % 12) || 12) + ':00' + (selectedDate.getHours() < 11 ? ' AM' : ' PM')
+            timeStart: (((selectedDate.getUTCHours() ) % 12) || 12) + ':00' + (selectedDate.getUTCHours() < 11 ? ' AM' : ' PM'),
+            timeEnd: (((selectedDate.getUTCHours() + 1) % 12) || 12) + ':00' + (selectedDate.getUTCHours() < 11 ? ' AM' : ' PM')
         }
         phoneService.setPickUpTime(pickUpTime);
         $.ajax({

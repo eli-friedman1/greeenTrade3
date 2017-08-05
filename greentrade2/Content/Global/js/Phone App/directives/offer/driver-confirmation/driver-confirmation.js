@@ -1,13 +1,27 @@
 ﻿
 myApp.controller('confirm', ['$scope', '$timeout', 'phoneService', function MyTabsController($scope, $timeout, phoneService) {
+
+    $scope.phoneData = phoneService.getPhoneData();
     $scope.timeSlot = phoneService.getPickUpTime();
+
+    if ($scope.phoneData.offer == null) {
+        window.location = ("/#!/phoneselection");
+    } else if (!phoneService.loggedIn.value) {
+        window.location = ("/#!/phoneselection");
+    } else if ($scope.timeSlot == null) {
+        window.location = ("/#!/selectpickup");
+    }
+
+    $scope.firstName = phoneService.firstName;
+
+    
     $scope.address = phoneService.getAddress();
     $scope.editAddress = false;
     $scope.newAddress = {};
 
     $scope.editTime = editTime;
     function editTime() {
-        window.location = ("/#!/selectPickup");
+        window.location = ("/#!/selectpickup");
     }
 
     $scope.saveNewAddress = saveNewAddress;

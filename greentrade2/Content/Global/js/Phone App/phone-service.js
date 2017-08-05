@@ -1,6 +1,7 @@
 ﻿myApp.service('phoneService', function () {
     
     this.loggedIn = { value: false };
+    this.firstName = null;
 
     var phoneData;
     //var phoneData = {
@@ -29,14 +30,15 @@
         return phoneData;
     }
 
-    var pickUpTime = {
-        day: "",
-        month: "",
-        date: "",
-        year: "",
-        timeStart: "",
-        timeEnd: ""
-    }
+    var pickUpTime;
+    //var pickUpTime = {
+    //    day: "",
+    //    month: "",
+    //    date: "",
+    //    year: "",
+    //    timeStart: "",
+    //    timeEnd: ""
+    //}
 
     this.setPickUpTime = function (value) {
         pickUpTime = value;
@@ -46,13 +48,14 @@
         return pickUpTime;
     }
 
-    var address = {
-        address1: "",
-        address2: "",
-        city: "",
-        state: "",
-        zip: "",
-    }
+    var address;
+    //var address = {
+    //    address1: "",
+    //    address2: "",
+    //    city: "",
+    //    state: "",
+    //    zip: "",
+    //}
         
     this.setAddress = function (value) {
         address = value;
