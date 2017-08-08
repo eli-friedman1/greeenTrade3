@@ -1,7 +1,7 @@
 ﻿
 
 body {
-    
+     margin: 0 0 100px;
 }
 
 /*ul {
@@ -60,11 +60,13 @@ li {
 
 .series-btn-div{ width:25%; float: left; }
 
-.series-button {
+.feature-item-btn.series-btn {
     line-height: 20px;
     min-height: 20px;
-    margin: .2vw .3vw;
+    margin: .4vw .3vw;
     display:inline-block;
+    font-family: defaultLightFont; 
+    font-size:1.2em;
 }
 
 .series-button-text {
@@ -82,24 +84,47 @@ li {
     width: 100%;
 }
 
-.feature-item {
-    display: flex;
+.feature-item-row {
+    display: inline-block;
+    width: 100%;
+     vertical-align: middle;
+}
+
+.feature-item-option {
+    display: inline-block;
+    width:20%; 
+    float: left;
     /*padding: .5vw 0;*/
     position: relative;
 }
 
+.feature-item-option.feature-name { width: 16.66%; }
+.feature-item-option.feature-option-container { width:83.33%; }
+
+.feature-item-btn { cursor:pointer; color:black; font-family: defaultBoldFont; }
+.selected-item a {  color:var(--green) !important; font-family: defaultBoldFont !important; /*cursor:pointer; font-family: defaultBoldFont;*/}
+.feature-item-btn:hover { text-decoration: none; color:var(--green); }
+.feature-item-option.feature-name { color: #a3aeb9;}
+
+
 hr {
     margin: .8vw 0;
+    /*border-top: 1px solid #cccccc;*/
 }
 
 .condition-details {
     padding-top: 2vw;
 }
 
+.get-offer-btn { min-height:20px; height: 5.5vh; font-size: 2vh; line-height: 4vh; /*position:absolute; bottom:0;*/ text-align:center; /*width: 42%; height: 30%; float: right;*/ padding: 0px 20px; color: #fff; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: inline-block; border-radius: 20px; border: 0;transition: all ease-in-out .5s; border: 2px solid #50d691;}
+.get-offer-btn:hover { color: #50d691; background: #fff;} 
+
 .selected-time-slot {
     /*color: #64be8a !important;*/ 
     color: #fff !important; background: #50d691; 
 }
+
+
 
 @media (max-width: 768px) {
 
@@ -126,10 +151,13 @@ hr {
     }
 
     .state-button-container{
-        display:flex;
+        display:block;
     }
 
+    .series-btn-div{ width:50%; float: left; }
+
     .state-button {
+        width:33%;
         min-width: 50px;
         line-height: 20px;
         min-height: 20px;
@@ -139,4 +167,17 @@ hr {
     .state-image {
         top: -2px;
     }
+
+    .feature-item-option.feature-name { width: 33%; }
+
+    .feature-item-option {
+        display: block;
+        width:50%; 
+        float: left;
+        /*padding: .5vw 0;*/
+        position: relative;
+    }
+
+    .feature-item-option.feature-option-container { width:66%; }
+
 }

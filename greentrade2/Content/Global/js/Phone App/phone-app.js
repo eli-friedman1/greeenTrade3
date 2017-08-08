@@ -95,6 +95,7 @@ myApp.config(function ($routeProvider, $locationProvider) {
 //});
 
 myApp.controller('phoneAppController', ['$scope', '$window', 'phoneService', function ($scope, $window, phoneService) {
+    $scope.box1 = true;
     phoneService.loggedIn.value = $window.loggedIn;
     phoneService.firstName = $window.firstNameFromSession;
   //  vm = this;
@@ -143,7 +144,10 @@ myApp.directive('slideToggle', function () {
             // When it changes trigger a slideToggle
             scope.$watch('isOpen', function (newIsOpenVal, oldIsOpenVal) {
                 if (newIsOpenVal !== oldIsOpenVal) {
-                    element.stop().slideToggle(slideDuration);
+                    if ($('#mobileMenuBox').is(":visible")) {
+                        element.stop().slideToggle(slideDuration);
+                    }
+                    
                 }
             });
 

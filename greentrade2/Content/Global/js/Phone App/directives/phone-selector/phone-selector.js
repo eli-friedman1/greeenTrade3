@@ -3,13 +3,13 @@
     //    $scope.updateTitle({ subTitle: 'START YOUR GREENTRADE' });
     //});
 
-    $scope.phoneData = phoneService.getPhoneData();
-
+    
+   
 
     //'/Content/Global/Img/sprite.svg#sprint'
     $scope.phoneBrands = {
         'iphone': {
-            series: ['series1', 'series2', 'sdfdsfdsfdsdfssdf', 'dsfdsfdsdfssdfs', 'fdsfdsdfssdfss', 'sfdsfdsdfssdfsdf', 'fdsfdsdfssdfsyj', 'dsfdsfdsdfssdfsert', 'sfdsdfssdfsewe', 'sfdsdfssdfsyugyh'],
+            series: ['iPhone 7 Plus', 'iPhone 7', 'sdfdsfdsfdsdfssdf', 'dsfdsfdsdfssdfs', 'fdsfdsdfssdfss', 'sfdsfdsdfssdfsdf', 'fdsfdsdfssdfsyj', 'dsfdsfdsdfssdfsert', 'sfdsdfssdfsewe', 'sfdsdfssdfsyugyh'],
             imageUrl: "/Content/Global/Img/iphine-icon.png"
         },
         'android': {
@@ -41,8 +41,10 @@
 
     $scope.selectSeries = selectSeries;
     $scope.isSeriesSelected = false;
+    $scope.selectedSeriesIndex = null;
 
-    function selectSeries(series) {
+    function selectSeries(series, index) {
+        $scope.selectedSeriesIndex = index;
         $scope.isSeriesSelected = true;
         $scope.phoneData.seriesSelected = series;
     }
@@ -67,8 +69,10 @@
 
     $scope.selectColor = selectColor;
     $scope.isColorSelected = false;
+    $scope.selectedColorIndex = null;
 
-    function selectColor(color) {
+    function selectColor(color, index) {
+        $scope.selectedColorIndex = index;
         $scope.isColorSelected = true;
         $scope.phoneData.colorSelected = color;
     }
@@ -77,8 +81,10 @@
 
     $scope.selectGB = selectGB;
     $scope.isGBSelected = false;
+    $scope.selectedGBIndex = null;
 
-    function selectGB(GB) {
+    function selectGB(GB, index) {
+        $scope.selectedGBIndex = index;
         $scope.isGBSelected = true;
         $scope.phoneData.GBSelected = GB;
     }
@@ -87,13 +93,20 @@
 
     $scope.selectCondition = selectCondition;
     $scope.isConditionSelected = false;
+    $scope.selectedConditionIndex = null;
 
-    function selectCondition(condition) {
+    function selectCondition(condition, index) {
+        $scope.selectedConditionIndex = index;
         $scope.isConditionSelected = true;
         $scope.phoneData.conditionSelected = condition;
     }
 
     $scope.submit = submit;
+
+    $scope.phoneData = phoneService.getPhoneData();
+    if ($scope.phoneData != null) {
+        $scope.selectedColorIndex = $scope.colors.indexOf($scope.phoneData.colorSelected);
+    }
 
     function submit() {
         $.ajax({

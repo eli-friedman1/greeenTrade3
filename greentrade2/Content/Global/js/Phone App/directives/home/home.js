@@ -26,5 +26,4 @@
 //});
 
 myApp.controller('home', ['$scope', '$timeout', 'phoneService', function MyTabsController($scope, $timeout, phoneService) {
-    $scope.box1 = true;
 }]);

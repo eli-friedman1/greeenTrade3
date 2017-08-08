@@ -133,10 +133,10 @@
 				</div>
 				<div class="top-align-container" layout="row" layout-align="center center">
 					<nav class="menuBox">
-						<a href="#" class="toggle" ng-click="box1=!box1"><span></span><span></span><span></span></a>
-						<ul data-slide-toggle="box1" data-slide-toggle-duration="700">
-							<li><a href="/#!/howitworks">How it works</a></li>
-							<li><a href="/#!/about">About us</a></li>
+						<a id="mobileMenuBox" class="toggle" ng-click="box1=!box1"><span></span><span></span><span></span></a>
+						<ul ng-click="box1=!box1" data-slide-toggle="box1" data-slide-toggle-duration="700">
+							<li><a  href="/#!/howitworks">How it works</a></li>
+							<li><a  href="/#!/about">About us</a></li>
 							<li><a href="/#!/faqs">FAQ's</a></li>
 							<li><a href="/#!/whygreentrade">Why GreenTrade?</a></li>
 						</ul>
@@ -214,9 +214,17 @@
             <div class="body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
-                <hr />
                 <footer>
-                    <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                    <div class="bottom-page-1">   
+                        <div class="footer-links">
+							<a href="/#!/howitworks" class="footer-link">HOW IT WORKS</a>
+							<a href="/#!/about" class="footer-link">ABOUT US</a>
+							<a href="/#!/faqs" class="footer-link">FAQ’S</a>
+							<a href="/#!/contact" class="footer-link">CONTACT</a>
+                        </div>
+                        <br />
+                        <p style="color:#e6dfdf; font-size:.8em;">Copyright &copy; <%: DateTime.Now.Year %> GreenTrade. All Rights Reserved.</p>
+                    </div>
                 </footer>
             </div>
         </form>
