@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace greentrade2.Controllers
 {
-   // [Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -392,7 +392,7 @@ namespace greentrade2.Controllers
         //    return View(model);
         //}
 
-        
+        [AllowAnonymous]
         public JsonResult RegisterAjax(string email, string pw, string fName, string lName, string address, string city, string state, string zip, string phone)
         {
             bool success = true;
@@ -462,6 +462,7 @@ namespace greentrade2.Controllers
             return Json(new { success, firstName });
         }
 
+        [AllowAnonymous]
         // [HttpPost]
         public JsonResult LogInAjax(string email, string pw, bool rememberMe = false)
         {

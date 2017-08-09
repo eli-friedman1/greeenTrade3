@@ -83,9 +83,9 @@
     <base href="/">
 </head>
 <body id="bootstrap-overrides">
-    <div ng-app="phoneApp" ng-controller="phoneAppController">
+    <div ng-app="phoneApp" ng-controller="phoneAppController" class="app-div">
 
-        <form runat="server">
+        <form runat="server"> <%-- style="flex: 1 0 auto;"--%>
             <asp:ScriptManager runat="server">
                 <Scripts>
                     <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -214,21 +214,23 @@
             <div class="body-content">
                 <asp:ContentPlaceHolder ID="MainContent" runat="server">
                 </asp:ContentPlaceHolder>
-                <footer>
-                    <div class="bottom-page-1">   
-                        <div class="footer-links">
-							<a href="/#!/howitworks" class="footer-link">HOW IT WORKS</a>
-							<a href="/#!/about" class="footer-link">ABOUT US</a>
-							<a href="/#!/faqs" class="footer-link">FAQ’S</a>
-							<a href="/#!/contact" class="footer-link">CONTACT</a>
-                        </div>
-                        <br />
-                        <p style="color:#e6dfdf; font-size:.8em;">Copyright &copy; <%: DateTime.Now.Year %> GreenTrade. All Rights Reserved.</p>
-                    </div>
-                </footer>
+                
+                
+                
             </div>
+            
         </form>
-
+        <%--<div class="bottom-page-1">   
+                <div class="footer-links">
+			        <a href="/#!/howitworks" class="footer-link">HOW IT WORKS</a>
+			        <a href="/#!/about" class="footer-link">ABOUT US</a>
+			        <a href="/#!/faqs" class="footer-link">FAQ’S</a>
+			        <a href="/#!/contact" class="footer-link">CONTACT</a>
+                </div>
+                <br />
+                <p style="color:#e6dfdf; font-size:.8em;">Copyright &copy; <%: DateTime.Now.Year %> GreenTrade. All Rights Reserved.</p>
+            </div>--%>
     </div>
+    
 </body>
 </html>

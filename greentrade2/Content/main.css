@@ -13,19 +13,38 @@
 }
 /*nav bar*/
 body{
-  margin: 0 0 100px;
+  /*margin: 0 0 100px;*/
     /* bottom = footer height */
+      /*margin: 0 0 100px;*/
+    
 }
 html {
   /*font-family: sans-serif;*/
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-      margin: 0 0 100px;
+     /*position: relative;
+     min-height: 100%;*/ 
+      
+}
+
+.app-div {
+      display: flex;
+  flex-direction: column;
+  height: 100vh; /* Avoid the IE 10-11 `min-height` bug. */
+}
+
+footer {
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
 }
 
 .body-content{
-    position: relative;
-     min-height: 100%;
+  
      
 }
 
@@ -478,11 +497,15 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 		background-color: #6c727a;
 		/*margin-top:10vh;*/
 		/*height:21.9vh;*/
-        position: absolute;
+        
+        
+        /*position: absolute;
         bottom: 0;
         left: 0;
         height: 100px;
-        overflow:hidden;
+        overflow:hidden;*/
+
+        flex-shrink: 0; /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
 	}
 
     .footer-link{
@@ -815,7 +838,7 @@ body.md-default-theme, body, html.md-default-theme, html { background: none;}
 	.account-box .account-details input[type="text"]{width: 100%; padding: 15px; height: 50px; border: 1px solid #7d858f; text-transform: upperCase; font-size: 13px; color: #7d858f;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;}
 	.account-box .account-details .acc-line .grp1{width: 32.8%;float: left;margin-right: 6px; margin-top: 5px; margin-bottom: 5px;}
 	.account-box .account-details .acc-line .grp1.spc{ margin-right: 0px;}
-	.account-box .account-details .submit-btn{ margin-top: 40px; background: #50d691; float: right; color: #fff;font-size: 15px; font-family: 'Camphor'; font-weight: 700; display: block; padding:9px 33px; border-radius: 17px; text-decoration: none;border: 1px solid #fff; transition: all 0.5s;}
+	.account-box .account-details .submit-btn{ cursor:pointer; margin-top: 40px; background: #50d691; float: right; color: #fff;font-size: 15px; font-family: 'Camphor'; font-weight: 700; display: block; padding:9px 33px; border-radius: 17px; text-decoration: none;border: 1px solid #fff; transition: all 0.5s;}
 	.account-box .account-details .submit-btn:hover{ background: #fff; border: 1px solid #50d691; color: #50d691;transition: all 0.5s;}
 	
 	/* accountsummary-box */

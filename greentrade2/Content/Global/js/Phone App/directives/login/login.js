@@ -52,6 +52,10 @@ myApp.controller('login', ['$scope', '$timeout', 'phoneService', function MyTabs
                 //    // $scope.offer = data.offer;
                 //    $scope.updateOffer({ offer: data.offer });
                 //});
+            },
+            function (data) {
+                phoneService.loggedIn.value = false;
+                phoneService.firstName = data.firstName;
             }
         );
     }

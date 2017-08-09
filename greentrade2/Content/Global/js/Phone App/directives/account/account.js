@@ -15,6 +15,11 @@
                     $scope.trades = data.trades;
                 });
                 $scope.clicked = new Array(data.trades.length);
+            },
+            function (data) {
+                phoneService.loggedIn.value = false;
+                phoneService.firstName = null;
+                window.location = ("/#!/login");
             }
         );
     }

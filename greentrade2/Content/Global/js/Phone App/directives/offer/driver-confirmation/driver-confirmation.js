@@ -36,6 +36,11 @@ myApp.controller('confirm', ['$scope', '$timeout', 'phoneService', function MyTa
         .then(
             function (data) {
                 phoneService.setAddress($scope.newAddress);
+            },
+            function (data) {
+                phoneService.loggedIn.value = false;
+                phoneService.firstName = null;
+                window.location = ("/#!/login");
             }
         );
     }
