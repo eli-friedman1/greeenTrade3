@@ -21,7 +21,7 @@ using System.Data;
 
 namespace greentrade2.Controllers
 {
-   // [Authorize]
+    [Authorize]
     public class PhoneSelectionController : Controller
     {
         public ActionResult Index()
@@ -29,7 +29,7 @@ namespace greentrade2.Controllers
             return View();
         }
 
-       // [AllowAnonymous]
+        [AllowAnonymous]
         public JsonResult SubmitPhoneForm(string brand, string series, string carrier, string color, int GB, string condition)
         {
             int phoneId = 0;
