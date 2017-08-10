@@ -11,7 +11,8 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+  <%--  was making live site get weird css file that was giving max width on form inputs--%>
+    <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -127,7 +128,7 @@
 				<div class="top-align-outer" layout="row" layout-align="center center">
 					<div class="logo">
 						<a class="navbar-brand" runat="server" href="~/">
-                            <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
+                           <%-- <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />--%>
                         </a>
 					</div>
 				</div>

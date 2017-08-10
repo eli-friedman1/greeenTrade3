@@ -227,6 +227,8 @@
     <Content Include="Content\angular-material.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Global\Img\android.png" />
+    <Content Include="Content\Global\Img\at.png" />
     <Content Include="Content\Global\Img\Backgroundtexture.svg" />
     <Content Include="Content\Global\Img\banner.jpg" />
     <Content Include="Content\Global\Img\conva-line1.png" />
@@ -242,8 +244,10 @@
     <Content Include="Content\Global\Img\GreentradelogoCropped.svg" />
     <Content Include="Content\Global\Img\gtlogo.svg" />
     <Content Include="Content\Global\Img\How It works graphic.jpg" />
+    <Content Include="Content\Global\Img\htc.png" />
     <Content Include="Content\Global\Img\innerpagetitle-bg.jpg" />
     <Content Include="Content\Global\Img\instagram.jpg" />
+    <Content Include="Content\Global\Img\iphine-icon.png" />
     <Content Include="Content\Global\Img\iphone-img1.png" />
     <Content Include="Content\Global\Img\iphone7-front-svr.jpg" />
     <Content Include="Content\Global\Img\kids with phones image.jpg" />
@@ -259,10 +263,16 @@
     <Content Include="Content\Global\Img\recycle.png" />
     <Content Include="Content\Global\Img\Recycle1.jpg" />
     <Content Include="Content\Global\Img\right-arrow.png" />
+    <Content Include="Content\Global\Img\samsung.png" />
     <Content Include="Content\Global\Img\schedule.png" />
+    <Content Include="Content\Global\Img\sprint.png" />
     <Content Include="Content\Global\Img\sprite.svg" />
+    <Content Include="Content\Global\Img\t-mobile.png" />
     <Content Include="Content\Global\Img\transparentbackgrndlogo.png" />
+    <Content Include="Content\Global\Img\unlock.png" />
+    <Content Include="Content\Global\Img\verizon.png" />
     <Content Include="Content\Global\Img\why-line.png" />
+    <Content Include="Content\Global\Img\Youtubeicon.png" />
     <Content Include="Content\Global\js\Phone App\directives\about\about.html" />
     <Content Include="Content\Global\js\Phone App\directives\about\about.js" />
     <Content Include="Content\Global\js\Phone App\directives\account\account.html" />
