@@ -124,11 +124,12 @@
                         
                     
                     </div>--%>
-            <div id="headercenter" class="top">
+            <div id="headercenter" class="top" layout="row" layout-align="space-between center">
 				<div class="top-align-outer" layout="row" layout-align="center center">
 					<div class="logo">
 						<a class="navbar-brand" runat="server" href="~/">
-                           <%-- <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />--%>
+                           <%-- <img src="\Content\Global\Img\logo.png" alt="" />--%>
+                            <img src='\Content\Global\Img\GreentradelogoCropped.svg' class="img-centered" alt='[]' />
                         </a>
 					</div>
 				</div>

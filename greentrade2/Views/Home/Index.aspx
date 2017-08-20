@@ -38,12 +38,12 @@
     }
 </script>
 
-<head>
+<%--<head>
 
     <title></title>
 </head>
     
-<body>
+<body>--%>
     <%--<script type="text/javascript">    
     /**
      * You must include the dependency on 'ngMaterial' 
@@ -98,6 +98,6 @@
 
     
 
-</body>
+<%--</body>--%>
 
 </asp:Content>

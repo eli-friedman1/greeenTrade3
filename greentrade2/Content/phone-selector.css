@@ -115,7 +115,7 @@ hr {
     padding-top: 2vw;
 }
 
-.get-offer-btn { min-height:20px; height: 5.5vh; font-size: 2vh; line-height: 4vh; /*position:absolute; bottom:0;*/ text-align:center; /*width: 42%; height: 30%; float: right;*/ padding: 0px 20px; color: #fff; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: inline-block; border-radius: 20px; border: 0;transition: all ease-in-out .5s; border: 2px solid #50d691;}
+.get-offer-btn { /*min-height:20px; height: 5.5vh;*/ font-size: 2vh; /*line-height: 4vh;*/ /*position:absolute; bottom:0;*/ text-align:center; /*width: 42%; height: 30%; float: right;*/ padding: 0px 20px; color: #fff; font-family: 'Camphor'; font-weight: 600; background: #50d691; display: inline-block; border-radius: 20px; border: 0;transition: all ease-in-out .5s; border: 2px solid #50d691;}
 .get-offer-btn:hover { color: #50d691; background: #fff;} 
 
 .selected-time-slot {
